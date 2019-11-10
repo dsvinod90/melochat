@@ -17,7 +17,7 @@ gem 'autoprefixer-rails'
 gem 'devise'
 gem 'httparty'
 gem 'will_paginate'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem "font-awesome-rails"
 gem 'redcarpet'
 gem 'coderay'
