@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header">
+    New Blog Article Released!!
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @blog.title %></h5>
+    <p class="card-text"><%= @blog.body.slice(0..100) %>.....</p>
+    <%= link_to  "Read More", blog_path(@blog.id), class: 'btn btn-primary' %>
+  </div>
+</div>
