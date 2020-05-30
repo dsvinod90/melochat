@@ -1,1 +1,19 @@
 @import "bootstrap";
+@font-face {
+    font-family: 'Moranke';
+    src: url('/assets/Moranke.ttf');
+ }
+ @font-face {
+    font-family: 'GeosansLight';
+    src: url('/assets/GeosansLight.ttf');
+ }
+
+ .main-logo{
+     font-family: 'Moranke';
+     font-size: 50px;
+ }
+
+ .navbar-font{
+    font-family: 'GeosansLight';
+    font-size: 25px;
+ }
