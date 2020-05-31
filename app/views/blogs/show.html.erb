@@ -2,5 +2,8 @@
     <h2><%= @blog.title %></h2>
 </div>
 <div class='row content-font blog-paragraph'>
-    <p class='col-lg'><%= @blog.body %></p>
+    <p><%= markdown(@blog.body) %></p>
+</div>
+<div class='row justify-content-center blog-content content-font'>
+    <%= link_to  "Edit", edit_blog_path, class: 'btn btn-secondary btn-lg' %>
 </div>

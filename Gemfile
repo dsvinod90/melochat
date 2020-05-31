@@ -14,6 +14,11 @@ source 'https://rubygems.org'
  gem 'jquery-rails'
  gem 'lastfm'
  gem 'aws-sdk-s3', '~> 1'
+ gem 'redcarpet'
+ gem 'coderay'
+ gem 'font-awesome-rails'
+ gem 'md_simple_editor'
+ gem 'bootstrap-sass'
 
   group :development, :test do
     gem 'spring'
