@@ -1,0 +1,24 @@
+<div class='row justify-content-center'>
+    <h1 class='display-3 content-font'>
+        <%= @type.titleize %>
+    </h1>
+</div>
+<%@blogs.each_slice(2) do |batch| %>
+    <div class="row content-font">
+       <% batch.each do |blog| %>
+        <div class="col-sm-6">
+                <div class="card card-details">
+                    <div class="card-body">
+                        <h3 class="card-title">
+                            <%= blog.title %>
+                        </h3>
+                        <footer class="blockquote-footer">Authored By: <cite title="Blog Author"><%= blog.author %></cite></footer>
+                        <blockquote class="blockquote mb-0 card-details">
+                            <%= link_to  blog.description, blog_path(blog.id), class: 'card-link card-details' %>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+       <% end %>
+    </div>
+<% end %>

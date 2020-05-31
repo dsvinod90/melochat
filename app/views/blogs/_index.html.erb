@@ -1,10 +1,13 @@
-<div class="card">
+<div class="card text-center content-font card-details">
   <div class="card-header">
-    New Blog Article Released!!
+    <h3>New Article Published!!</h3>
   </div>
   <div class="card-body">
-    <h5 class="card-title"><%= @blog.title %></h5>
-    <p class="card-text"><%= @blog.body.slice(0..100) %>.....</p>
+    <h4 class="card-title"><%= @blog.title %></h4>
+    <p class="lead card-text"><%= @blog.description %></p>
     <%= link_to  "Read More", blog_path(@blog.id), class: 'btn btn-primary' %>
+  </div>
+  <div class="card-footer text-muted">
+    <b>Authored By:</b> <%= @blog.author %> | <b>Category:</b> <%= @blog.category.titleize%>
   </div>
 </div>
