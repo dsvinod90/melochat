@@ -3,11 +3,11 @@
 @import "md_simple_editor";
 @font-face {
     font-family: 'Moranke';
-    src: url('/assets/Moranke.ttf');
+    src: font-url('Moranke.ttf');
  }
  @font-face {
     font-family: 'GeosansLight';
-    src: url('/assets/GeosansLight.ttf');
+    src: font-url('GeosansLight.ttf');
  }
 
  .main-logo{
