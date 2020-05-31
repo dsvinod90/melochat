@@ -6,16 +6,16 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item categories">
-        <%= link_to 'Travel', blogs_path, class: 'navbar-brand navbar-font' %>
+        <%= link_to 'Travel', blogs_path(params: { type: 'travel' }), class: 'navbar-brand navbar-font' %>
       </li>
       <li class="nav-item categories">
-        <%= link_to 'Food', blogs_path, class: 'navbar-brand navbar-font' %>
+        <%= link_to 'Food', blogs_path(params: { type: 'food' }), class: 'navbar-brand navbar-font' %>
       </li>
       <li class="nav-item categories">
-        <%= link_to 'Tech', blogs_path, class: 'navbar-brand navbar-font' %>
+        <%= link_to 'Tech', blogs_path(params: { type: 'tech' }), class: 'navbar-brand navbar-font' %>
       </li>
       <li class="nav-item categories">
-        <%= link_to 'Contact', blogs_path, class: 'navbar-brand navbar-font' %>
+        <%= link_to 'Create', new_blog_path, class: 'navbar-brand navbar-font' %>
       </li>
     </ul>
   </div>

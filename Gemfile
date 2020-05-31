@@ -14,11 +14,17 @@ source 'https://rubygems.org'
  gem 'jquery-rails'
  gem 'lastfm'
  gem 'aws-sdk-s3', '~> 1'
+ gem 'redcarpet'
+ gem 'coderay'
+ gem 'font-awesome-rails'
+ gem 'md_simple_editor'
+ gem 'bootstrap-sass'
 
   group :development, :test do
     gem 'spring'
     gem 'spring-watcher-listen', '~> 2.0.0'
     gem 'sqlite3', '~> 1.4'
+    gem 'byebug', "~> 11.1"
  end
 
   group :test do
@@ -26,6 +32,7 @@ source 'https://rubygems.org'
     gem 'selenium-webdriver'
     gem 'webdrivers'
     gem 'sqlite3', '~> 1.4'
+    gem 'byebug', "~> 11.1"
  end
 
   group :production do
