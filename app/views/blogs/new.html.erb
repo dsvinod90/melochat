@@ -1,5 +1,5 @@
 <div class='content-font'>
-    <%= form_with model: @blog do |f| %>
+    <%= form_with model: @blog, local: true do |f| %>
         <div class='row blog-content justify-content-center'>
             <%= f.text_field :title, placeholder: 'Title', size: '60x10' %>
         </div>
@@ -7,13 +7,13 @@
             <%= f.text_field :author, placeholder: 'Author', size: '60x10' %>
         </div>
         <div class='row blog-content justify-content-center'>
-            <%= f.text_field :category, placeholder: 'Category', size: '60x10' %>
+            <%= f.select :category, Blog::Categories::ALL, { prompt: 'Select a Category' }, { style: "width: 380px;" }%>
         </div>
         <div class='row blog-content justify-content-center'>
             <%= f.text_field :description, placeholder: 'Description', size: '60x10' %>
         </div>
         <div class='row blog-content justify-content-center'>
-            <%= f.text_area :body, id: 'blog-body'%>
+            <%= f.text_area :body, id: 'blog-body' %>
         </div>
         <div class='row blog-content justify-content-center'>
             <%= f.submit "Create", class: 'btn btn-primary' %>

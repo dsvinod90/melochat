@@ -1,3 +1,4 @@
 en:
   blogs: 
     article_not_found: 'Article not present!'
+    invalid_category: 'Invalid category!'

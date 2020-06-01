@@ -17,11 +17,11 @@ class BlogsController < ApplicationController
 
     def create
         blog = Blog.new(create_blog_params)
-        if blog.save!
+        if blog.save
             redirect_to blog_path(blog.id), flash: { success: 'Article created successfully' }
         else
-            render 'new'
-            flash.now('Not created')
+            flash.now[:danger] = blog.errors.full_messages.to_sentence
+            render :new
         end
     end
 
@@ -34,7 +34,8 @@ class BlogsController < ApplicationController
         if @blog.update(create_blog_params)
             redirect_to @blog
         else
-            render 'edit'
+            flash.now[:danger] = blog.errors.full_messages.to_sentence
+            render :edit
         end
     end
 
