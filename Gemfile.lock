@@ -76,6 +76,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.1.4)
       aws-eventstream (~> 1.0, >= 1.0.2)
+    bcrypt (3.1.13)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
     bootstrap (4.3.1)
@@ -99,6 +100,12 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
+    devise (4.7.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.12.2)
@@ -148,6 +155,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     pg (0.20.0)
     popper_js (1.16.0)
     public_suffix (4.0.5)
@@ -190,6 +198,9 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.5.0)
     regexp_parser (1.7.0)
+    responders (3.0.0)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -224,6 +235,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     webdrivers (4.3.0)
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
@@ -251,6 +264,7 @@ DEPENDENCIES
   byebug (~> 11.1)
   capybara (>= 2.15)
   coderay
+  devise
   font-awesome-rails
   jbuilder (~> 2.7)
   jquery-rails
