@@ -1,7 +1,7 @@
 <div class='row content-font'>
   <h2 class='blog-content text-center col-9'> Article of the day </h4>
   <% unless @space_info[:error] %>
-    <div class="card mb-3 col-9">
+    <div class="card mb-3 col-9" style="max-height: auto;">
       <%= image_tag(@space_info['url'], class: 'card-img-top card-details') %>
       <div class="card-body">
         <h3 class="card-title"><%= @space_info['title']%></h3>
@@ -41,9 +41,17 @@
               </tr>
             </tbody>
           </table>
+          <%= pie_chart(
+            { "Confirmed" => @latest_status['Confirmed'],
+              "Deaths" => @latest_status['Deaths'],
+              "Recovered" => @latest_status['Recovered'],
+              "Active" => @latest_status['Active']
+            },
+            colors: ['orange','red','green','blue']
+          )%>
         <% end %>
         <% unless @summary[:error]%>
-        <h4 class='sidebar-section'> Global Updates </h4>
+          <h4 class='sidebar-section'> Global Updates </h4>
           <table class='table table-sm'>
             <tbody>
               <tr>
