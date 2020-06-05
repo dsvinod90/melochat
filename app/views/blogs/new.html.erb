@@ -4,9 +4,6 @@
             <%= f.text_field :title, placeholder: 'Title', size: '60x10' %>
         </div>
         <div class='row blog-content justify-content-center'>
-            <%= f.text_field :author, placeholder: 'Author', size: '60x10' %>
-        </div>
-        <div class='row blog-content justify-content-center'>
             <%= f.select :category, Blog::Categories::ALL, { prompt: 'Select a Category' }, { style: "width: 380px;" }%>
         </div>
         <div class='row blog-content justify-content-center'>

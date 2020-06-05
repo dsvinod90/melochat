@@ -19,6 +19,7 @@ source 'https://rubygems.org'
  gem 'font-awesome-rails'
  gem 'md_simple_editor'
  gem 'bootstrap-sass'
+ gem 'devise'
 
   group :development, :test do
     gem 'spring'
