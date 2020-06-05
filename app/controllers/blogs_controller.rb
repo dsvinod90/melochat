@@ -1,4 +1,6 @@
 class BlogsController < ApplicationController
+    before_action :authenticate_admin!, except: [:index, :show]
+
     def index 
         @blogs = Blog.where(category: blog_params[:type])
         @type = blog_params[:type]
@@ -16,6 +18,7 @@ class BlogsController < ApplicationController
     end
 
     def create
+        params[:blog][:author] = current_admin.name
         blog = Blog.new(create_blog_params)
         if blog.save
             redirect_to blog_path(blog.id), flash: { success: 'Article created successfully' }
