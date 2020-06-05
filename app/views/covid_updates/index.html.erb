@@ -1,0 +1,10 @@
+<div class='content-font'>
+    <h1 class='covid-heading text-center'>Covid Updates</h1>
+    <%= form_with url: covid_updates_path, method: 'get' do %>
+        <b>Status: </b>
+        <%= select_tag 'status', options_for_select(['TotalConfirmed', 'TotalDeaths', 'TotalRecovered'], params['status']), onchange: "this.form.submit();"%>
+    <% end %>
+    <div class='row justify-content-center'>
+        <%= geo_chart (@country_wise_summary), width: "900px", height: "600px", class: 'text-center' %>
+    </div>
+</div>

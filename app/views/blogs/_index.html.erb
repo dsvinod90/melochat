@@ -11,7 +11,9 @@
     </div>
   <% end %>
   <div class='col-3 bg-light'>
-    <h2 class='text-center card-details'>Covid Updates</h2>
+    <h2 class='text-center card-details'>
+      <%= link_to 'Covid Updates', covid_updates_path %>
+    </h2>
     <div class='row blog-content justify-content-center'>
         <%= form_with url: welcome_home_path, method: 'get' do %>
           <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, params['country']), onchange: "this.form.submit();"%>
