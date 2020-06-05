@@ -1,0 +1,2 @@
+module CovidUpdatesHelper
+end
