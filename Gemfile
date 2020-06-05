@@ -20,6 +20,7 @@ source 'https://rubygems.org'
  gem 'md_simple_editor'
  gem 'bootstrap-sass'
  gem 'devise'
+ gem 'active_model_serializers', '~> 0.10.0'
 
   group :development, :test do
     gem 'spring'

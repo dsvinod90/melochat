@@ -2,3 +2,7 @@ en:
   blogs: 
     article_not_found: 'Article not present!'
     invalid_category: 'Invalid category!'
+  nasa:
+    api_error: 'Unable to fetch data. Please refresh the page.'
+  covid:
+    api_error: 'Unable to fetch data for countries. Please try later'
