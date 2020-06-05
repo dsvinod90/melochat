@@ -26,6 +26,7 @@ source 'https://rubygems.org'
  gem "actionpack", ">= 5.2.4.3"
  gem "actionview", ">= 5.2.4.2"
 gem "activejob", ">= 5.1.6.1"
+gem "chartkick"
 
   group :development, :test do
     gem 'spring'
