@@ -7,4 +7,45 @@
     <div class='row justify-content-center'>
         <%= geo_chart (@country_wise_summary), width: "900px", height: "600px", class: 'text-center' %>
     </div>
+    <h2 class='covid-heading text-center'> Overall current statistics </h2>
+    <div class='row countries-list justify-content-center'>
+        <%= form_with url: covid_updates_path, method: 'get' do %>
+            <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, params['country']), onchange: "this.form.submit();"%>
+        <% end %>
+    </div>
+    <h3 class='covid-heading text-center'> <%= @latest_status['Country'] %> </h3>
+    <div class='row'>
+        <div class='col-6'>
+            <div class='row justify-content-center'>
+                <h3 class='text-secondary countries-list text-center'><b> Active </b></h3>
+            </div>
+            <div class='row justify-content-center'>
+                <h3 class='text-primary countries-list text-center'><b> <%= @latest_status['Active'] %> </b></h3>
+            </div>
+            <div class='row justify-content-center card-details'>
+                <h3 class='text-secondary countries-list text-center'><b> Deaths </b></h3>
+            </div>
+            <div class='row justify-content-center'>
+                <h3 class='text-danger countries-list text-center'><b> <%= @latest_status['Deaths'] %> </b></h3>
+            </div>
+        </div>
+        <div class='col-6'>
+            <div class='row justify-content-center'>
+                <h3 class='text-secondary countries-list text-center'><b> Confirmed </b></h3>
+            </div>
+            <div class='row justify-content-center'>
+                <h3 class='countries-list text-center text-warning'><b> <%= @latest_status['Confirmed'] %> </b></h3>
+            </div>
+            <div class='row justify-content-center card-details'>
+                <h3 class='text-secondary countries-list text-center'><b> Recovered </b></h3>
+            </div>
+            <div class='row justify-content-center'>
+                <h3 class='text-success countries-list text-center'><b> <%= @latest_status['Recovered'] %> </b></h3>
+            </div>
+        </div>
+    </div>
+    <h2 class='covid-heading text-center'> Cummulative weekly statistics </h2>
+    <div class='blog-content'>
+        <%= line_chart data_for_line_graph(@all_status), xtitle: 'Time', ytitle: 'Count', colors: ['orange', 'red', 'green'], thousands: ","%>
+    </div>
 </div>
