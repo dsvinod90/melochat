@@ -10,7 +10,7 @@
     <h2 class='covid-heading text-center'> Overall current statistics </h2>
     <div class='row countries-list justify-content-center'>
         <%= form_with url: covid_updates_path, method: 'get' do %>
-            <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, params['country']), onchange: "this.form.submit();"%>
+            <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, (params['country'] || 'india')), onchange: "this.form.submit();"%>
         <% end %>
     </div>
     <h3 class='covid-heading text-center'> <%= @latest_status['Country'] %> </h3>
