@@ -8,7 +8,7 @@ class WelcomeController < ApplicationController
         all_status = Rails.cache.fetch("all_status_#{country}", expires_in: 2.hours) do
             ::Services::GetCovidUpdates.new.get_stats(country)
         end
-        @latest_status = all_status.last
+        @latest_status = all_status.last if all_status.present?
         @summary = Rails.cache.fetch('global_summary', expires_in: 2.hours) do
             ::Services::GetCovidUpdates.new.get_global_status
         end

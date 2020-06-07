@@ -52,7 +52,7 @@
             colors: ['orange','red','green','blue']
           )%>
         <% end %>
-        <% unless @summary[:error]%>
+        <% unless @summary.blank? || @summary[:error]%>
           <h4 class='sidebar-section'> Global Updates </h4>
           <table class='table table-sm'>
             <tbody>
