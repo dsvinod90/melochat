@@ -16,7 +16,7 @@
     </h2>
     <div class='row blog-content justify-content-center'>
         <%= form_with url: welcome_home_path, method: 'get' do %>
-          <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, params['country']), onchange: "this.form.submit();"%>
+          <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, (params['country'])), prompt: 'Select Country',onchange: "this.form.submit();"%>
         <% end %>
         <% unless @latest_status.blank? || @latest_status[:error] %>
           <table class='table table-sm'>
