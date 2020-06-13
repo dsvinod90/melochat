@@ -47,7 +47,7 @@
         </div>
         <h2 class='covid-heading text-center'> Cummulative weekly statistics </h2>
         <div class='blog-content'>
-            <%= line_chart data_for_line_graph(@all_status), xtitle: 'Time', ytitle: 'Count', colors: ['orange', 'red', 'green'], thousands: ","%>
+            <%= line_chart data_for_line_graph(@all_status.body), xtitle: 'Time', ytitle: 'Count', colors: ['orange', 'red', 'green'], thousands: ","%>
         </div>
     <% end %>
 </div>
