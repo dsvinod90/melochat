@@ -27,6 +27,8 @@ source 'https://rubygems.org'
  gem "actionview", ">= 5.2.4.2"
  gem "activejob", ">= 5.1.6.1"
  gem "chartkick"
+ gem "circuitbox"
+ gem 'webmock', '~> 3.7', '>= 3.7.6'
 
   group :development, :test do
     gem 'spring'

@@ -5,23 +5,25 @@ module Services
         BASE_URL = Rails.application.credentials[:covid][:base_url]
 
         def get_stats(country)
-            path = Rails.application.credentials[:covid][:live_updates][:path] + country
-            url = BASE_URL + path
-            uri = URI(url)
-            @response = Net::HTTP.get_response(uri)
-            return JSON.parse(response.body) if response.is_a?(Net::HTTPSuccess)
-        rescue
-            return [{ error: { message: I18n.t('covid.api_error')}}]
+            url = BASE_URL + path_for_country_wise_stats(country)
+            raw_response = Services::Request.get(url)
+            raw_response.present? ? Services::Response::CovidData::CountryWiseResponse.new(raw_response) : nil
         end
 
         def get_global_status
-            path = Rails.application.credentials[:covid][:summary][:path]
-            url = BASE_URL + path
-            uri = URI(url)
-            @response = Net::HTTP.get_response(uri)
-            return JSON.parse(response.body)if response.is_a?(Net::HTTPSuccess)
-        rescue
-            return [{ error: { message: I18n.t('covid.api_error')}}]
+            url = BASE_URL + path_for_global_status
+            raw_response = Services::Request.get(url)
+            raw_response.present? ? Services::Response::CovidData::GlobalResponse.new(raw_response) : nil
+        end
+
+        private
+
+        def path_for_country_wise_stats(country)
+            Rails.application.credentials[:covid][:live_updates][:path] + country
+        end
+        
+        def path_for_global_status
+            Rails.application.credentials[:covid][:summary][:path]
         end
     end
 end

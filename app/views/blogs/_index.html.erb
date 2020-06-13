@@ -1,16 +1,18 @@
 <div class='row content-font'>
   <h2 class='blog-content text-center col-9'> Article of the day </h4>
-  <% unless @space_info[:error] %>
-    <div class="card mb-3 col-9" style="max-height: auto;">
-      <%= image_tag(@space_info['url'], class: 'card-img-top card-details') %>
+  <div class="card mb-3 col-9 justify-content-center" style="max-height: auto;">
+    <% if apod_data_success_response?(@space_info) %>
+      <%= image_tag(apod_data_image(@space_info), class: 'card-img-top card-details') %>
       <div class="card-body">
-        <h3 class="card-title"><%= @space_info['title']%></h3>
-        <p class="card-text"><%= @space_info['explanation']%></p>
-        <p class="card-text"><small class="text-muted">Date: <%= @space_info['date']%></small></p>
+        <h3 class="card-title"><%= apod_data_title(@space_info)%></h3>
+        <p class="card-text"><%= apod_data_explanation(@space_info)%></p>
+        <p class="card-text"><small class="text-muted">Date: <%= apod_data_date(@space_info)%></small></p>
       </div>
-    </div>
-  <% end %>
-  <div class='col-3 bg-light'>
+    <% else %>
+      <%= render 'blogs/article_not_found' %>
+    <% end %>
+  </div>
+  <div class='col-3 bg-light overflow-auto right-nav-bar'>
     <h2 class='text-center card-details'>
       <%= link_to 'Covid Updates', covid_updates_path %>
     </h2>
@@ -18,70 +20,74 @@
         <%= form_with url: welcome_home_path, method: 'get' do %>
           <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, (params['country'])), prompt: 'Select Country',onchange: "this.form.submit();"%>
         <% end %>
-        <% unless @latest_status.blank? || @latest_status[:error] %>
+        <% if country_wise_covid_response_success?(@latest_status)%>
           <table class='table table-sm'>
             <tbody>
               <tr>
                 <td> Confirmed Cases </td>
-                <td><%= @latest_status['Confirmed'] %></td>
+                <td><%= country_wise_confirmed(@latest_status) %></td>
               </tr>
               <tr>
                 <td> Deaths </td>
-                <td><%= @latest_status['Deaths'] %></td>
+                <td><%= country_wise_deaths(@latest_status) %></td>
               </tr>
               <tr>
                 <td> Recovered </td>
-                <td><%= @latest_status['Recovered'] %></td>
+                <td><%= country_wise_recovered(@latest_status) %></td>
               </tr>
               <tr>
                 <td> Active </td>
-                <td><%= @latest_status['Active'] %></td>
+                <td><%= country_wise_active(@latest_status) %></td>
               </tr>
               <tr>
                 <td> Date of Record </td>
-                <td><%= Date.parse(@latest_status['Date']) %></td>
+                <td><%= Date.parse(country_wise_date_of_report(@latest_status)) %></td>
               </tr>
             </tbody>
           </table>
           <%= pie_chart(
-            { "Confirmed" => @latest_status['Confirmed'],
-              "Deaths" => @latest_status['Deaths'],
-              "Recovered" => @latest_status['Recovered'],
-              "Active" => @latest_status['Active']
+            { "Confirmed" => country_wise_confirmed(@latest_status),
+              "Deaths" => country_wise_deaths(@latest_status),
+              "Recovered" => country_wise_recovered(@latest_status),
+              "Active" => country_wise_active(@latest_status)
             },
             colors: ['orange','red','green','blue']
           )%>
+        <% else %>
+          <%= render 'blogs/article_not_found' %>
         <% end %>
-        <% unless @summary.blank? || @summary[:error]%>
+        <% if global_covid_response_success?(@summary)%>
           <h4 class='sidebar-section'> Global Updates </h4>
           <table class='table table-sm'>
             <tbody>
               <tr>
                 <td> New Confirmed </td>
-                <td><%= @summary['Global']['NewConfirmed'] %></td>
+                <td><%= global_new_confirmed(@summary) %></td>
               </tr>
               <tr>
                 <td> Total Confirmed </td>
-                <td><%= @summary['Global']['TotalConfirmed'] %></td>
+                <td><%= global_total_confirmed(@summary) %></td>
               </tr>
               <tr>
                 <td> New Deaths </td>
-                <td><%= @summary['Global']['NewDeaths'] %></td>
+                <td><%= global_new_deaths(@summary) %></td>
               </tr>
               <tr>
                 <td> Total Deaths </td>
-                <td><%= @summary['Global']['TotalDeaths'] %></td>
+                <td><%= global_total_deaths(@summary) %></td>
               </tr>
               <tr>
                 <td> New Recovered </td>
-                <td><%= @summary['Global']['NewRecovered'] %></td>
+                <td><%= global_new_recovered(@summary) %></td>
               </tr>
               <tr>
                 <td> Total Recovered </td>
-                <td><%= @summary['Global']['TotalRecovered'] %></td>
+                <td><%= global_total_recovered(@summary) %></td>
               </tr>
             </tbody>
           </table>
+        <% else %>
+          <%= render 'blogs/article_not_found' %>
         <% end %>
     </div>
   </div>
