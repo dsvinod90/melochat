@@ -18,7 +18,7 @@
     </h2>
     <div class='row blog-content justify-content-center'>
         <%= form_with url: welcome_home_path, method: 'get' do %>
-          <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, (params['country'])), prompt: 'Select Country',onchange: "this.form.submit();"%>
+          <%= select_tag 'country', options_for_select(Country.all.order(:name).collect{ |country| [country.name, country.slug] }, (params['country'] || 'india')), prompt: 'Select Country',onchange: "this.form.submit();"%>
         <% end %>
         <% if country_wise_covid_response_success?(@latest_status)%>
           <table class='table table-sm'>
