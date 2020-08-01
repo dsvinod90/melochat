@@ -38,11 +38,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar01">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item categories <%= 'active' if params[:type] == 'travel'%>">
-            <%= link_to 'Travel', blogs_path(params: { type: 'travel' }), class: 'nav-link navbar-brand navbar-font' %>
-          </li>
-          <li class="nav-item categories <%= 'active' if params[:type] == 'food'%>">
-            <%= link_to 'Food', blogs_path(params: { type: 'food' }), class: 'nav-link navbar-brand navbar-font' %>
+          <li class="nav-item categories <%= 'active' if params[:type] == 'music'%>">
+            <%= link_to 'Music', blogs_path(params: { type: 'music' }), class: 'nav-link navbar-brand navbar-font' %>
           </li>
           <li class="nav-item categories <%= 'active' if params[:type] == 'tech'%>">
             <%= link_to 'Tech', blogs_path(params: { type: 'tech' }), class: 'nav-link navbar-brand navbar-font' %>
@@ -66,8 +63,7 @@
     </div>
     <footer id="sticky-footer" class="py-2 bg-light content-font footer-custom", style="bottom: 0;">
       <div class="container text-center">
-        <small class='lead'> We support </small>
-        <%= image_tag  "https://hypocryte.s3.ap-south-1.amazonaws.com/BLM-logo.png", size: '40x40' %>
+        <small class='lead'> #JusticeForSushantSinghRajput </small>
       </div>
     </footer>
   </body>

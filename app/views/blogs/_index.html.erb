@@ -46,12 +46,11 @@
             </tbody>
           </table>
           <%= pie_chart(
-            { "Confirmed" => country_wise_confirmed(@latest_status),
-              "Deaths" => country_wise_deaths(@latest_status),
+            { "Deaths" => country_wise_deaths(@latest_status),
               "Recovered" => country_wise_recovered(@latest_status),
               "Active" => country_wise_active(@latest_status)
             },
-            colors: ['orange','red','green','blue']
+            colors: ['red','green','blue']
           )%>
         <% else %>
           <%= render 'blogs/article_not_found' %>

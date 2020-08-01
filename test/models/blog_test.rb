@@ -27,7 +27,7 @@ class BlogTest < ActiveSupport::TestCase
   end
 
   test 'should save blog' do
-    blog = Blog.new(title: 'Foo', body: 'foobar', author: 'Melo', category: 'food')
+    blog = Blog.new(title: 'Foo', body: 'foobar', author: 'Melo', category: 'music')
     assert blog.save
   end
 end
