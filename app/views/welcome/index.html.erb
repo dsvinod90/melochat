@@ -1,0 +1,20 @@
+<div class='row content-font' style="margin: 2px;">
+    <div class="card mb-3 col-9 justify-content-center" style="max-height: auto;">
+        <h2 class="blog-content text-center"> Article of the day </h2>
+        <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+    </div>
+    <div class='col-3 bg-light overflow-auto right-nav-bar'>
+        <h2 class='text-center card-details'>
+            <%= link_to 'Covid Updates', covid_updates_path %>
+        </h2>
+        <%= react_component(
+            "CountryCovidData",
+            {
+                countrySummaryUrl: country_summary_covid_updates_path,
+                countries: Country.all.collect { |country| { name: country.name, slug: country.slug } }
+            }
+        ) %> 
+        <h4 class='sidebar-section text-center'> Global Updates </h4>
+        <%= react_component("GlobalCovidData", { globalSummaryUrl: global_summary_covid_updates_path }) %> 
+    </div>
+</div>
