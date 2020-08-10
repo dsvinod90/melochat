@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
   </head>
 
@@ -32,12 +33,12 @@
       <%= content_tag :div, msg, class: "alert alert-#{name}" %>
     <% end %>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to 'Hypocryte', welcome_index_path, class: 'navbar-brand main-logo' %>
+      <%= link_to 'Hypocryte', welcome_index_path, class: 'navbar-brand main-logo animate__animated animate__fadeInDown' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar01" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar01">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto  animate__animated animate__fadeInDown">
           <li class="nav-item categories <%= 'active' if params[:type] == 'music'%>">
             <%= link_to 'Music', blogs_path(params: { type: 'music' }), class: 'nav-link navbar-brand navbar-font' %>
           </li>
@@ -54,7 +55,7 @@
           <% end %>
         </ul>
         <% if current_admin.present? %>
-            <span class='navbar-text navbar-font'><b>Welcome, <%= current_admin.name %></b></span>
+            <span class='navbar-text navbar-font animate__animated animate__fadeInRight'><b>Welcome, <%= current_admin.name %></b></span>
         <% end %>
       </div>
     </nav>
