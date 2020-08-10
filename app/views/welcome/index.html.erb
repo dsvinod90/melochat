@@ -1,9 +1,9 @@
 <div class='row content-font' style="margin: 2px;">
-    <div class="card mb-3 col-9 justify-content-center" style="max-height: auto;">
+    <div class="card mb-3 col-9 justify-content-center animate__animated animate__fadeInLeft" style="max-height: auto;">
         <h2 class="blog-content text-center"> Article of the day </h2>
         <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
     </div>
-    <div class='col-3 bg-light overflow-auto right-nav-bar'>
+    <div class='col-3 bg-light overflow-auto right-nav-bar  animate__animated animate__fadeInRight'>
         <h2 class='text-center card-details'>
             <%= link_to 'Covid Updates', covid_updates_path %>
         </h2>
