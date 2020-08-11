@@ -2,7 +2,7 @@ class Blog < ApplicationRecord
     module Categories
         TECH   = 'tech'.freeze
         MUSIC = 'music'.freeze
-        ALL    = %w[food music].freeze
+        ALL    = %w[tech music].freeze
     end
 
     validates :title, :body, :author, :category, presence: true
