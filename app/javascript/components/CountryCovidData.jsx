@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { LineChart, PieChart } from 'react-chartkick'
 import 'chart.js'
+import {Spring, config} from 'react-spring/renderprops'
 
 class CountryCovidData extends React.Component {
   constructor(props) {
@@ -74,19 +75,47 @@ class CountryCovidData extends React.Component {
                     <tbody>
                       <tr className='text-info'>
                             <td> Confirmed Cases </td>
-                            <td>{this.state.confirmedCases}</td>
+                            <td>
+                                <Spring
+                                    from={{ number: this.state.confirmedCases - 1000 }}
+                                    to={{ number: this.state.confirmedCases }}
+                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                    {props => <div>{props.number}</div>}
+                                </Spring>
+                            </td>
                         </tr>
                       <tr className='text-danger'>
                             <td> Deaths </td>
-                            <td>{this.state.deathCases}</td>
+                            <td>
+                                <Spring
+                                    from={{ number: this.state.deathCases - 1000 }}
+                                    to={{ number: this.state.deathCases }}
+                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                    {props => <div>{props.number}</div>}
+                                </Spring>
+                            </td>
                         </tr>
                         <tr className='text-success'>
                             <td> Recovered </td>
-                            <td>{this.state.recoveredCases}</td>
+                            <td>
+                                <Spring
+                                    from={{ number: this.state.recoveredCases - 1000 }}
+                                    to={{ number: this.state.recoveredCases }}
+                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                    {props => <div>{props.number}</div>}
+                                </Spring>
+                            </td>
                         </tr>
                         <tr className='text-primary'>
                             <td> Active </td>
-                            <td>{this.state.activeCases}</td>
+                            <td>
+                                <Spring
+                                    from={{ number: this.state.activeCases - 1000 }}
+                                    to={{ number: this.state.activeCases }}
+                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                    {props => <div>{props.number}</div>}
+                                </Spring>
+                            </td>
                         </tr>
                         <tr>
                             <td> Date of Record </td>
