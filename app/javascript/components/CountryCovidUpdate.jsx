@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { LineChart, PieChart } from 'react-chartkick'
 import 'chart.js'
+import {Spring, config} from 'react-spring/renderprops'
 
 class CountryCovidUpdate extends React.Component {
   constructor(props) {
@@ -130,13 +131,31 @@ class CountryCovidUpdate extends React.Component {
                             <h3 className='text-secondary countries-list text-center'><b> Active </b></h3>
                         </div>
                         <div className='row justify-content-center'>
-                            <h3 className='text-primary countries-list text-center'><b> {this.state.activeCases} </b></h3>
+                            <h3 className='text-primary countries-list text-center'>
+                                <b>
+                                    <Spring
+                                        from={{ number: this.state.activeCases - 1000 }}
+                                        to={{ number: this.state.activeCases }}
+                                        config={{ tension: 280, friction: 120, duration: 200, delay: 1000 }}>
+                                        {props => <div>{props.number}</div>}
+                                    </Spring>
+                                </b>
+                            </h3>
                         </div>
                         <div className='row justify-content-center card-details'>
                             <h3 className='text-secondary countries-list text-center'><b> Deaths </b></h3>
                         </div>
                         <div className='row justify-content-center'>
-                            <h3 className='text-danger countries-list text-center'><b> {this.state.deathCases} </b></h3>
+                            <h3 className='text-danger countries-list text-center'>
+                                <b>
+                                    <Spring
+                                        from={{ number: this.state.deathCases - 1000 }}
+                                        to={{ number: this.state.deathCases }}
+                                        config={{ tension: 280, friction: 120, duration: 200, delay: 1000 }}>
+                                        {props => <div>{props.number}</div>}
+                                    </Spring>
+                                </b>
+                            </h3>
                         </div>
                     </div>
                     <div className='col-6'>
@@ -144,13 +163,31 @@ class CountryCovidUpdate extends React.Component {
                             <h3 className='text-secondary countries-list text-center'><b> Confirmed </b></h3>
                         </div>
                         <div className='row justify-content-center'>
-                            <h3 className='countries-list text-center text-warning'><b> {this.state.confirmedCases} </b></h3>
+                            <h3 className='countries-list text-center text-warning'>
+                                <b>
+                                    <Spring
+                                        from={{ number: this.state.confirmedCases - 1000 }}
+                                        to={{ number: this.state.confirmedCases }}
+                                        config={{ tension: 280, friction: 120, duration: 200, delay: 1000 }}>
+                                        {props => <div>{props.number}</div>}
+                                    </Spring>
+                                </b>
+                            </h3>
                         </div>
                         <div className='row justify-content-center card-details'>
                             <h3 className='text-secondary countries-list text-center'><b> Recovered </b></h3>
                         </div>
                         <div className='row justify-content-center'>
-                            <h3 className='text-success countries-list text-center'><b> {this.state.recoveredCases} </b></h3>
+                            <h3 className='text-success countries-list text-center'>
+                                <b>
+                                    <Spring
+                                        from={{ number: this.state.recoveredCases - 1000 }}
+                                        to={{ number: this.state.recoveredCases }}
+                                        config={{ tension: 280, friction: 120, duration: 200, delay: 1000 }}>
+                                        {props => <div>{props.number}</div>}
+                                    </Spring>
+                                </b>
+                            </h3>
                         </div>
                     </div>
                 </div>
