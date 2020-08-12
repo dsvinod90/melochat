@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :welcome, only: [:index] do
     collection do
-      get 'home'
+      get 'random_number_trivia'
+      get 'random_date_trivia'
     end
   end
   resources :covid_updates, only: [:index] do

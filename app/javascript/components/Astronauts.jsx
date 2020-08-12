@@ -43,28 +43,25 @@ class Astronauts extends React.Component {
       <div className="card-body">
         <h5 className="card-title"> Astronauts in space now! </h5>
         <p className="card-title">There are <span><b>{this.state.numberOfAstronauts}</b></span> astronauts in space at this moment.</p>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">
+        <button type="button" className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal3" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
           More!
         </button>
         <div className="modal fade" id="exampleModal3" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
           <div className="modal-dialog" role="document">
             {
-                astronauts.map((value, index) => {
-                    return (
-                        <div key={index}>
-                            <div className="modal-content">
-                                <div className="modal-body">
-                                    <p className="card-text">Name: <span><b>{value['name']}</b></span></p>
-                                    <p className="card-text">Craft: <span><b>{value['craft']}</b></span></p>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                })
+              astronauts.map((value, index) => {
+                  return (
+                      <div key={index}>
+                          <div className="modal-content">
+                              <div className="modal-body">
+                                  <p className="card-text">Name: <span><b>{value['name']}</b></span></p>
+                                  <p className="card-text">Craft: <span><b>{value['craft']}</b></span></p>
+                              </div>
+                          </div>
+                      </div>
+                  )
+              })
             }
-            <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
           </div>
         </div>
       </div>

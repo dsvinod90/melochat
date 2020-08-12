@@ -59,33 +59,30 @@ class AsteroidNewsData extends React.Component {
         <div className="card-body">
           <h5 className="card-title"> Asteroids that flew by Earth today! </h5>
           <p className="card-title">Number of close encounters: <span><b>{this.state.asteroid_count}</b></span></p>
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+          <button type="button" className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal1" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
             More!
           </button>
           <div className="modal fade" id="exampleModal1" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
             <div className="modal-dialog" role="document">
               {
-                  asteroid_objects.map((value, index) => {
-                      return (
-                          <div key={index}>
-                              <div className="modal-content">
-                                  <div className="modal-header">
-                                      <h5 className="modal-title" id="exampleModalLabel">Comet Name:  {value['name']}</h5>
-                                  </div>
-                                  <div className="modal-body">
-                                      <p className="card-text">Minimum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_min']}</b></span></p>
-                                      <p className="card-text">Maximum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_max']}</b></span></p>
-                                      <p className="card-text">Is it hazardous: {this.isAsteroidHazardous(value['is_potentially_hazardous_asteroid'])}</p>
-                                      <p className="card-text">Closest approach to Earch (in Km): <span><b>{value['close_approach_data'].pop()['miss_distance']['kilometers']}</b></span></p>
-                                  </div>
-                              </div>
-                          </div>
-                      )
+                asteroid_objects.map((value, index) => {
+                    return (
+                        <div key={index}>
+                            <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Comet Name:  {value['name']}</h5>
+                                </div>
+                                <div className="modal-body">
+                                    <p className="card-text">Minimum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_min']}</b></span></p>
+                                    <p className="card-text">Maximum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_max']}</b></span></p>
+                                    <p className="card-text">Is it hazardous: {this.isAsteroidHazardous(value['is_potentially_hazardous_asteroid'])}</p>
+                                    <p className="card-text">Closest approach to Earch (in Km): <span><b>{value['close_approach_data'].pop()['miss_distance']['kilometers']}</b></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    )
                   })
               }
-              <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
             </div>
           </div>
         </div>
