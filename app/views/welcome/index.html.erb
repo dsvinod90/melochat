@@ -1,13 +1,13 @@
 <div class='row content-font' style="margin: 2px;">
-    <div class='card-deck col-9 mb-3'>
+    <div class='card-deck col-9 mb-3' style="max-height: 40px;">
         <div class="card justify-content-center">
             <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
         </div>
         <div class="card justify-content-center">
-            <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+            <%= react_component("AsteroidNewsData", { asteroidDataUrl: space_asteroid_news_path }) %> 
         </div>
         <div class="card justify-content-center">
-            <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+            <%= react_component("Astronauts", { astronautDataUrl: space_astronauts_data_path }) %> 
         </div>
     </div>
     <div class='col-3 bg-light overflow-auto right-nav-bar'>

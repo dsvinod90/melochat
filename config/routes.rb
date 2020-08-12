@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   resources :blogs
   get 'space/apod', to: 'space#apod'
   get 'space/asteroid_news', to: 'space#asteroid_news'
+  get 'space/astronauts_data', to: 'space#astronauts_data'
 end

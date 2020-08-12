@@ -11,6 +11,7 @@ class ApodData extends React.Component {
     this.renderFailureResponse = this.renderFailureResponse.bind(this);
     this.state = {
       apodDataVisible: false,
+      hasErrored: false,
       description: null,
       image: null,
       title: null,
@@ -22,6 +23,7 @@ class ApodData extends React.Component {
     this.setState( 
       {
         apodDataVisible: true,
+        hasErrored: false,
         description: obj['explanation'],
         image: obj['url'],
         title: obj['title'],
@@ -32,35 +34,49 @@ class ApodData extends React.Component {
 
   onFailureApi(error) {
     console.log(error);
+    this.setState( 
+      {
+        apodDataVisible: false,
+        hasErrored: true,
+      }
+    )
   }
 
-  renderSuccessResponse() {
-    return (
-      <div className="card-body">
-        <h5 className="card-title"> Space article of the day! </h5>
-        <p className="card-title">{this.state.title}</p>
-        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Read More
-        </button>
-        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">{this.state.title}</h5>
-              </div>
-              <div className="modal-body">
-                <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>
-                <p className="card-text">{this.state.description}</p>
-                <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+  renderSuccessResponse(isVisible) {
+    if(isVisible) {
+      return (
+        <div className="card-body">
+          <h5 className="card-title"> Space article of the day! </h5>
+          <p className="card-title">{this.state.title}</p>
+          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            More!
+          </button>
+          <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">{this.state.title}</h5>
+                </div>
+                <div className="modal-body">
+                  <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>
+                  <p className="card-text">{this.state.description}</p>
+                  <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    )
+      )
+    } else {
+      return(
+        <div>
+           <p>Loading...</p> 
+        </div>
+      )
+    }
   }
 
   renderFailureResponse() {
@@ -92,9 +108,10 @@ class ApodData extends React.Component {
 
   render() {
     const isVisible = this.state.apodDataVisible;
+    const hasApiErrored = this.state.hasErrored;
     let apodData;
-    if(isVisible) {
-      apodData = this.renderSuccessResponse();
+    if(!hasApiErrored) {
+      apodData = this.renderSuccessResponse(isVisible);
     } else {
       apodData = this.renderFailureResponse();
     }
