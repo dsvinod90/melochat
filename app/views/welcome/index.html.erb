@@ -1,16 +1,22 @@
 <div class='row content-font' style="margin: 2px;">
-    <div class='card-deck col-9 mb-3' style="max-height: 40px;">
-        <div class="card justify-content-center">
-            <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+    <div class='card-deck col-8 mb-3' style="max-height: 100px;">
+        <div class="row col-12 justify-content-center" style="margin-left: 2px; margin-bottom: 5px; border-bottom-style: solid; border-width: 0.5px; border-color: #B0B0B0;">
+            <%= react_component("RandomNumberTrivia", { randomNumberTriviaUrl: random_number_trivia_welcome_index_path }) %> 
+            <%= react_component("RandomDateTrivia", { randomDateTriviaUrl: random_date_trivia_welcome_index_path }) %> 
         </div>
-        <div class="card justify-content-center">
-            <%= react_component("AsteroidNewsData", { asteroidDataUrl: space_asteroid_news_path }) %> 
-        </div>
-        <div class="card justify-content-center">
-            <%= react_component("Astronauts", { astronautDataUrl: space_astronauts_data_path }) %> 
+        <div class="row" style="margin-top: 5px;">
+            <div class="card bg-light justify-content-center">
+                <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+            </div>
+            <div class="card bg-light justify-content-center">
+                <%= react_component("AsteroidNewsData", { asteroidDataUrl: space_asteroid_news_path }) %> 
+            </div>
+            <div class="card bg-light justify-content-center">
+                <%= react_component("Astronauts", { astronautDataUrl: space_astronauts_data_path }) %> 
+            </div>
         </div>
     </div>
-    <div class='col-3 bg-light overflow-auto right-nav-bar'>
+    <div class='col-4 bg-light overflow-auto right-nav-bar' style="margin-left: 15px;">
         <h2 class='text-center card-details'>
             <%= link_to 'Covid Updates', covid_updates_path %>
         </h2>

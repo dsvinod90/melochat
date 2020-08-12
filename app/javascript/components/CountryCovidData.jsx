@@ -157,7 +157,7 @@ class CountryCovidData extends React.Component {
     }
     return(
         <div>
-            <form>
+            <form className="text-center">
                 <select name="country" id="country-select" onChange={(e) => this.handleFormChange(e)}>
                     <option key='0' value='' defaultValue="selected">Select Country</option>
                     {sortedCountries}

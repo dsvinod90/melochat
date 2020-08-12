@@ -48,7 +48,7 @@ class ApodData extends React.Component {
         <div className="card-body">
           <h5 className="card-title"> Space article of the day! </h5>
           <p className="card-title">{this.state.title}</p>
-          <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button type="button" className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
             More!
           </button>
           <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,9 +61,6 @@ class ApodData extends React.Component {
                   <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>
                   <p className="card-text">{this.state.description}</p>
                   <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
-                </div>
-                <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
