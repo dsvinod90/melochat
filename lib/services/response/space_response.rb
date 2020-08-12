@@ -11,22 +11,6 @@ module Services
             def success?
                 response.is_a?(Net::HTTPSuccess)
             end
-
-            def explanation
-                body['explanation']
-            end
-
-            def title
-                body['title']
-            end
-
-            def image_url
-                body['url']
-            end
-
-            def date
-                body['date']
-            end
         end
     end
 end
