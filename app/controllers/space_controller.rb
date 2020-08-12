@@ -7,4 +7,7 @@ class SpaceController < ApplicationController
         end
         render json: space_info.body
     end
+
+    def asteroid_news
+    end
 end

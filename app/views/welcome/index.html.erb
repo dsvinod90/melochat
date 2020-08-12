@@ -1,7 +1,14 @@
 <div class='row content-font' style="margin: 2px;">
-    <div class="card mb-3 col-9 justify-content-center" style="max-height: auto;">
-        <h2 class="blog-content text-center"> Article of the day </h2>
-        <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+    <div class='card-deck col-9 mb-3'>
+        <div class="card justify-content-center">
+            <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+        </div>
+        <div class="card justify-content-center">
+            <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+        </div>
+        <div class="card justify-content-center">
+            <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
+        </div>
     </div>
     <div class='col-3 bg-light overflow-auto right-nav-bar'>
         <h2 class='text-center card-details'>

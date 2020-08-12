@@ -37,9 +37,28 @@ class ApodData extends React.Component {
   renderSuccessResponse() {
     return (
       <div className="card-body">
-        <h3 className="card-title">{this.state.title}</h3>
-        <p className="card-text">{this.state.description}</p>
-        <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
+        <h5 className="card-title"> Space article of the day! </h5>
+        <p className="card-title">{this.state.title}</p>
+        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Read More
+        </button>
+        <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">{this.state.title}</h5>
+              </div>
+              <div className="modal-body">
+                <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>
+                <p className="card-text">{this.state.description}</p>
+                <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

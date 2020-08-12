@@ -6,7 +6,6 @@ Rails.application.routes.draw do
       get 'home'
     end
   end
-  get 'space/apod', to: 'space#apod'
   resources :covid_updates, only: [:index] do
     collection do
       get 'country_summary'
@@ -15,4 +14,6 @@ Rails.application.routes.draw do
     end
   end
   resources :blogs
+  get 'space/apod', to: 'space#apod'
+  get 'space/asteroid_news', to: 'space#asteroid_news'
 end
