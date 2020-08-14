@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 module Services
-    module Response
-        class RandomTriviaResponse
-            attr_reader :response, :body
+  module Response
+    class RandomTriviaResponse
+      attr_reader :response, :body
 
-            def initialize(response)
-                @response = response
-                @body = response.body
-            end
+      def initialize(response)
+        @response = response
+        @body = response.body
+      end
 
-            def success?
-                response.is_a?(Net::HTTPSuccess)
-            end
-        end
+      def success?
+        response.is_a?(Net::HTTPSuccess)
+      end
     end
+  end
 end
