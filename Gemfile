@@ -31,7 +31,6 @@ gem('redcarpet')
 gem('rubocop')
 gem('rubyzip', '>= 1.3.0')
 gem('sass-rails', '>= 6')
-gem('sqlite3', '~> 1.4')
 gem('turbolinks', '~> 5')
 gem('webmock', '~> 3.7', '>= 3.7.6')
 gem('webpacker')
@@ -39,6 +38,7 @@ gem('webpacker')
 group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sqlite3', '~> 1.4'
 end
 
 group :test do
