@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       get 'date_wise_country_summary'
     end
   end
-  resources :blogs
+  resources :blogs do
+    resources :comments
+  end
   get 'space/apod', to: 'space#apod'
   get 'space/asteroid_news', to: 'space#asteroid_news'
   get 'space/astronauts_data', to: 'space#astronauts_data'

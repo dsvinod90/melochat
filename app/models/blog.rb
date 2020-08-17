@@ -13,6 +13,8 @@ class Blog < ApplicationRecord
   validates :title, :body, :author, :category, presence: true
   validate :category_should_be_valid
 
+  has_many :comments, dependent: :destroy
+
   private
 
   def category_should_be_valid

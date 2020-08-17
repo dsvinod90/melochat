@@ -1,11 +1,76 @@
-<div class='row justify-content-center blog-content content-font'>
-    <h2><%= @blog.title %></h2>
-</div>
-<div class='row content-font blog-paragraph'>
-    <p><%= markdown(@blog.body) %></p>
-</div>
-<% if current_admin.present? %>
-    <div class='row justify-content-center blog-content content-font'>
-        <%= link_to  "Edit", edit_blog_path, class: 'btn btn-secondary btn-lg' %>
+<div class='row blog-paragraph'>
+  <% if current_admin.present? %>
+    <div class='text-left blog-content content-font'>
+      <%= link_to edit_blog_path do %>
+        <i class="fa fa-pencil-square-o fa-lg edit-button" aria-hidden="true"></i>
+      <% end %>
     </div>
-<% end %>
+    <div class='text-left blog-content content-font'>
+      <%= link_to blog_path(@blog), method: :delete do %>
+        <i class="fa fa-trash-o fa-lg delete-button" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  <% end %>
+  <div id="mainbar">
+    <i class="fa fa-comments-o fa-lg comments" aria-hidden="true" onclick="openNav()"></i>
+  </div>
+</div>
+
+<div class='row justify-content-center blog-content content-font'>
+  <h2><%= @blog.title %></h2>
+</div>
+
+<div id='blog-body' class='row content-font blog-paragraph'>
+  <p><%= markdown(@blog.body) %></p>
+  <div id="mySidebar" class="sidebar content-font">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+    <div class="accordion" id="accordionComment">
+      <div class="card" style="background-color: #F0F8FF;">
+        <div class="card-header" id="headingOne">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#addComment" aria-expanded="true" aria-controls="collapseOne">
+              <b> Add a comment </b>
+            </button>
+          </h2>
+        </div>
+        <div id="addComment" class="collapse" aria-labelledby="headingOne" data-parent="#accordionComment">
+          <div class="card-body">
+            <%= form_with(url: "/blogs/#{@blog.id}/comments", method: "POST") do %>
+              <div class='input-group'>
+                <%= text_field_tag(:name, nil, placeholder: 'Name', class: 'form-control') %>
+                <%= text_field_tag(:email, nil, placeholder: 'Email', class: 'form-control', style: 'margin-left: 5px;') %>
+                <%= text_area_tag(:description, nil, placeholder: 'Comment', style: 'width:100%; margin-top: 5px;', class: 'form-control') %>
+              </div>
+              <%= submit_tag('Post comment', class: 'btn btn-outline-primary btn-sm', style: 'margin-top: 5px;') %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 10px;">
+    </div>
+    <% @blog.comments.each do |comment| %>
+      <div class="card" style="background-color: #F0F8FF; margin-bottom: 3px;">
+        <div class="card-body">
+          <b> <%= comment.name %> </b>
+          <p> <%= comment.description%> </p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("blog-body").classList = "row content-font blog-paragraph col-9"
+  document.getElementById("mySidebar").style.width = "350px";
+  document.getElementById("mainbar").style.marginRight = "250px";
+}
+
+function closeNav() {
+  document.getElementById("blog-body").classList = "row content-font blog-paragraph"
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("mainbar").style.marginRight= "0";
+}
+</script>
