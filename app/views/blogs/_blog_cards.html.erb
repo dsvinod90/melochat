@@ -9,10 +9,7 @@
         <div class="col-sm-6">
                 <div class="card card-details">
                     <div class="card-body">
-                        <h3 class="card-title">
-                            <%= blog.title %>
-                        </h3>
-                        <footer class="blockquote-footer">Authored By: <cite title="Blog Author"><%= blog.author %></cite></footer>
+                      <h3 class="card-title"><%= blog.title %>
                         <blockquote class="blockquote mb-0 card-details">
                             <%= link_to  blog.description, blog_path(blog.id), class: 'card-link card-details' %>
                         </blockquote>
