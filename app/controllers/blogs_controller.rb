@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find_by(id: blog_params[:id])
-    redirect_to(welcome_home_path, flash: { danger: I18n.t('blogs.article_not_found') }) unless @blog
+    redirect_to(welcome_index_path, flash: { danger: I18n.t('blogs.article_not_found') }) unless @blog
   end
 
   def new
@@ -39,6 +39,17 @@ class BlogsController < ApplicationController
     else
       flash.now[:danger] = blog.errors.full_messages.to_sentence
       render(:edit)
+    end
+  end
+
+  def destroy
+    @blog = Blog.find(blog_params[:id])
+    blog_type = @blog.category
+    if @blog.delete
+      redirect_to(blogs_path(type: blog_type), flash: { success: 'Article deleted successfully' })
+    else
+      flash.now[:danger] = 'Article could not be deleted'
+      render(:index)
     end
   end
 
