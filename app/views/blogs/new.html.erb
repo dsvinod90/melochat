@@ -1,13 +1,28 @@
 <div class='content-font'>
     <%= form_with model: @blog, local: true do |f| %>
         <div class='row blog-content justify-content-center'>
-            <%= f.text_field :title, placeholder: 'Title', size: '60x10' %>
+            <div class='input-group'>
+              <div class="input-group-prepend">
+                <span class="input-group-text">Title of the Article</span>
+              </div>
+              <%= f.text_field :title, class: 'form-control' %>
+            </div>
         </div>
         <div class='row blog-content justify-content-center'>
-            <%= f.select :category, Blog::Categories::ALL, { prompt: 'Select a Category' }, { style: "width: 380px;" }%>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupCountry">Options</label>
+              </div>
+            <%= f.select :category, Blog::Categories::ALL, { prompt: 'Select a Category' }, { id: 'inputGroupCountry', style: "width: 380px;", class: 'custom-select'}%>
+            </div>
         </div>
         <div class='row blog-content justify-content-center'>
-            <%= f.text_field :description, placeholder: 'Description', size: '60x10' %>
+            <div class='input-group'>
+              <div class="input-group-prepend">
+                <span class="input-group-text">Short Description of the Article</span>
+              </div>
+            <%= f.text_field :description, class: 'form-control' %>
+            </div>
         </div>
         <div class='row blog-content justify-content-center'>
             <%= f.text_area :body, id: 'blog-body' %>

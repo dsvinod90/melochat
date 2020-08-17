@@ -254,12 +254,19 @@ class CountryCovidUpdate extends React.Component {
     }
     return(
         <div>
+          <div className="row">
             <form className="text-center">
-                <select name="country" id="country-select" onChange={(e) => this.handleFormChange(e)}>
+              <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                  <label className="input-group-text" htmlFor="inputGroupCountryCovidUpdate">Countries</label>
+                </div>
+                <select className="custom-select" name="country" id="inputGroupCountryCovidUpdate" onChange={(e) => this.handleFormChange(e)}>
                     <option key='0' value='' defaultValue="selected">Select Country</option>
                     {sortedCountries}
                 </select>
+              </div>
             </form>
+          </div>
             {covidData}
             {chartData}
         </div>
