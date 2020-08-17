@@ -48,14 +48,17 @@ class ApodData extends React.Component {
         <div className="card-body">
           <h5 className="card-title"> Space article of the day! </h5>
           <p className="card-title">{this.state.title}</p>
-          <button type="button" className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
-            More!
-          </button>
+          <a data-toggle="modal" href="#exampleModal" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
+            Read More!
+          </a>
           <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title" id="exampleModalLabel">{this.state.title}</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                  </button>
                 </div>
                 <div className="modal-body">
                   <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>

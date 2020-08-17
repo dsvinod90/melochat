@@ -59,9 +59,9 @@ class AsteroidNewsData extends React.Component {
         <div className="card-body">
           <h5 className="card-title"> Asteroids that flew by Earth today! </h5>
           <p className="card-title">Number of close encounters: <span><b>{this.state.asteroid_count}</b></span></p>
-          <button type="button" className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal1" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
-            More!
-          </button>
+          <a data-toggle="modal" href="#exampleModal1" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
+            Read More!
+          </a>
           <div className="modal fade" id="exampleModal1" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
             <div className="modal-dialog" role="document">
               {
@@ -71,6 +71,9 @@ class AsteroidNewsData extends React.Component {
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <h5 className="modal-title" id="exampleModalLabel">Comet Name:  {value['name']}</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">X</span>
+                                    </button>
                                 </div>
                                 <div className="modal-body">
                                     <p className="card-text">Minimum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_min']}</b></span></p>
