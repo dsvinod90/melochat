@@ -1,0 +1,44 @@
+<div class='blog-content content-font'>
+  <div class='row' style='margin-bottom: 10px;'>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs :tag => :li, :separator => ">>" %>
+      </ol>
+    </nav>
+  </div>
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <%= form_with(url: '/explores/artists', method: 'get') do %>
+        <b><%= label_tag(:artistSearch, 'Search for artist', style: 'margin-right: 10px;') %></b>
+        <%= text_field_tag(:artist, nil, class: 'form-control', style: 'margin-right: 10px;') %>
+        <%= submit_tag('Search', class: 'btn btn-outline-primary') %>
+      <% end %>
+    </div>
+  </form>
+  <% if @response&.success? %>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope='col'>Name</th>
+            <th scope='col'>Listeners</th>
+            <th scope='col'>Last FM URL</th>
+            <th scope='col'> Go to artist</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @response.top_ten_artists.each do |artist| %>
+            <tr>
+              <td><%= artist['name'] %></td>
+              <td><%= artist['listeners'] %></td>
+              <td><a href=<%= artist['url'] %> target='_blank'> <%= artist['url']%> </a></td>
+              <td><%= link_to 'Know More', show_artists_explores_path(artist: artist['name'])%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% elsif @response&.failure? %>
+    <%= @response.error %>
+  <% end %>
+</div>

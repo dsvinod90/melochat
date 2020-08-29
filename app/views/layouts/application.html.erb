@@ -45,6 +45,9 @@
           <li class="nav-item categories <%= 'active' if params[:type] == 'tech'%>">
             <%= link_to 'Tech', blogs_path(params: { type: 'tech' }), class: 'nav-link navbar-brand navbar-font' %>
           </li>
+          <li class="nav-item categories <%= 'active' if params[:type] == 'explore'%>">
+            <%= link_to 'Explore', explores_path(params: { type: 'explore' }), class: 'nav-link navbar-brand navbar-font' %>
+          </li>
           <li class="nav-item categories <%= 'active' if current_page? (new_blog_path) %>">
             <%= link_to 'Create an Article', new_blog_path, class: 'nav-link navbar-brand navbar-font' %>
           </li>

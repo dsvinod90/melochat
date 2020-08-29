@@ -1,0 +1,25 @@
+<% if @trending_artist_info&.success? %>
+  <h3 class='text-center'> <%= "Top trending artists in #{@trending_artist_info.country_artist_attributes['country']}" %> </h3>
+  <div class="table-responsive-md">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class='text-center' scope='col'>Sl.No.</th>
+          <th class='text-center' scope='col'>Artist</th>
+          <th scope='col'>Listeners</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @trending_artist_info.country_top_artists.each.with_index do |artist, index| %>
+          <tr>
+            <td class='text-center'><%= index + 1 %></td>
+            <td class='text-center'><%= link_to artist['name'], show_artists_explores_path(artist: artist['name'])%></td>
+            <td><%= artist['listeners'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% elsif @trending_artist_info&.failure? %>
+  <%= @trending_artist_info.error %>
+<% end %>
