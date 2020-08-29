@@ -16,11 +16,11 @@ module Services
         end
 
         def failure?
-          body[:error].present?
+          body['error'].present?
         end
 
         def error
-          body[:message]
+          body['message']
         end
       end
     end
