@@ -34,7 +34,7 @@ gem('sass-rails', '>= 6')
 gem('turbolinks', '~> 5')
 gem('webmock', '~> 3.7', '>= 3.7.6')
 gem('webpacker')
-gem('breadcrumbs_on_rails'
+gem('breadcrumbs_on_rails')
 
 group :development, :test do
   gem 'spring'
