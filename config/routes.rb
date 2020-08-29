@@ -19,6 +19,14 @@ Rails.application.routes.draw do
   resources :blogs do
     resources :comments
   end
+  resources :explores, only: [:index] do
+    collection do
+      get 'charts'
+      get 'artists'
+      get 'show_artists'
+      get 'trending'
+    end
+  end
   get 'space/apod', to: 'space#apod'
   get 'space/asteroid_news', to: 'space#asteroid_news'
   get 'space/astronauts_data', to: 'space#astronauts_data'

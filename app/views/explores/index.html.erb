@@ -1,0 +1,37 @@
+<div class='blog-content content-font'>
+  <div class="row row-cols-1 row-cols-md-2">
+    <div class="col mb-4">
+      <div class="card">
+        <%= link_to artists_explores_path do %>
+          <img src="https://images-na.ssl-images-amazon.com/images/I/8103TSpkamL._SL1500_.jpg" id="artists" class="card-img-top" alt="Artists" style="width:100%;height:250px;">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">Artists</h5>
+          <p class="card-text">Get info on your favourite artists and their albums.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <%= link_to charts_explores_path do %>
+          <img src="https://resources.tidal.com/images/dba6ef57/fcff/41da/8548/6ac5761e22df/640x640.jpg" id="charts" class="card-img-top" alt="Charts" style="width:100%;height:250px;">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">Charts</h5>
+          <p class="card-text">Get the top albums and tracks that made the top of the charts.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card">
+        <%= link_to trending_explores_path do %>
+          <img src="https://c.dvdfab.cn/upload/resource/top-rock-artists-5.jpeg" id="trending" class="card-img-top" alt="Tracks" style="width:100%;height:250px;">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title">Trending in your country</h5>
+          <p class="card-text">Get the top tracks and artists trending in your country.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

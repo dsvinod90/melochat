@@ -1,0 +1,27 @@
+<% if @chart_track_info&.success? %>
+  <h3 class='text-center'> Top of the charts tracks </h3>
+  <div class="table-responsive-md">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class='text-center' scope='col'>Sl.No.</th>
+          <th class='text-center' scope='col'>Track Name</th>
+          <th class='text-center' scope='col'>Artist</th>
+          <th scope='col'>Listeners</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @chart_track_info.charts_top_tracks.each.with_index do |track_details, index| %>
+          <tr>
+            <td class='text-center'><%= index + 1 %></td>
+            <td class='text-center'><%= track_details['name'] %></td>
+            <td class='text-center'><%= link_to track_details['artist']['name'], show_artists_explores_path(artist: track_details['artist']['name'])%></td>
+            <td><%= track_details['listeners'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% elsif @chart_track_info&.failure? %>
+  <%= @chart_track_info.error %>
+<% end %>

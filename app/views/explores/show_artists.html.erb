@@ -1,0 +1,69 @@
+<div class='blog-content content-font'>
+  <% if @artist_info.success? %>
+    <div class='row' style='margin-bottom: 10px;'>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <%= render_breadcrumbs :tag => :li, :separator => ">>" %>
+        </ol>
+      </nav>
+    </div>
+    <div class='row justify-content-center'>
+      <h1> <%= @artist_info.artist_details['name'] %> </h1>
+    </div>
+    <div class='text-center'>
+      <% @artist_info.artist_tags.each do |tag| %>
+        <span class="badge badge-pill badge-success"><%= tag['name'].downcase %></span>
+      <% end %>
+    </div>
+    <div class='row'>
+      <div class='justify-content-center col-8' style="margin-top: 20px;">
+        <div class="accordion" id="bandAccordion">
+          <div class="card">
+            <div class="card-header" id="bandSummary">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseBand" aria-expanded="true" aria-controls="collapseBand">
+                  <h3 class='text-center'>Summary</h3>
+                  <%= @artist_info.artist_bio['summary'].html_safe %>
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseBand" class="collapse show" aria-labelledby="bandSummary" data-parent="#bandAccordion">
+              <div class="card-body">
+                <h3 class='text-center'>Band Details</h3>
+                <% if @artist_info.artist_bio['content'].present? %>
+                  <%= @artist_info.artist_bio['content'].gsub(/(\n){2}/, '<br/>').html_safe %>
+                <% else %>
+                  Band details not available for the chosen band. You can read more on Last FM.
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-4'>
+        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+          <div class="btn-group mr-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-info" style="margin-right: 4px; cursor: default;">
+              Listeners <span class="badge badge-dark"><%= @artist_info.artist_stats['listeners']%></span>
+            </button>
+            <button type="button" class="btn btn-warning" style="cursor: default;">
+              Play Count <span class="badge badge-dark"><%= @artist_info.artist_stats['playcount']%></span>
+            </button>
+          </div>
+        </div>
+        <h3 class='text-center' style="margin-top: 10px;"> Similar Artists </h3>
+        <% @artist_info.similar_artists.each do |artist| %>
+          <div class="card bg-light mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><%= artist['name'] %></h5>
+                <p class="card-text"><%= link_to 'Go to artist', show_artists_explores_path(artist: artist['name']) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% elsif @artist_info.failure? %>
+    <p class='test' style='margin-top: 10px;'>Unable to fetch artist info. Please try again later</p>
+  <% end %>
+</div>

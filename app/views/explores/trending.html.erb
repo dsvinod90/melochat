@@ -1,0 +1,24 @@
+<div class='blog-content content-font'>
+  <div class='row' style='margin-bottom: 10px;'>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <%= render_breadcrumbs :tag => :li, :separator => ">>" %>
+      </ol>
+    </nav>
+  </div>
+  <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+      <%= form_with(url: '/explores/charts', method: 'get') do %>
+        <b><%= label_tag(:chartSearch, 'Enter Country', style: 'margin-right: 10px;') %></b>
+        <%= text_field_tag(:country, nil, class: 'form-control', style: 'margin-right: 10px;') %>
+        <%= submit_tag('Search Artists', class: 'btn btn-outline-primary', name: 'search_artists', style: 'margin-right: 10px;') %>
+        <%= submit_tag('Search Tracks', class: 'btn btn-outline-primary', name: 'search_tracks') %>
+      <% end %>
+    </div>
+  </form>
+  <% if @trending_artist_info.present? %>
+    <%= render partial: 'trending_artists' %>
+  <% elsif @trending_track_info.present? %>
+    <%= render partial: 'trending_tracks' %>
+  <% end %>
+</div>
