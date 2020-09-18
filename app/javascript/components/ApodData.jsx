@@ -20,7 +20,7 @@ class ApodData extends React.Component {
   }
 
   onSuccessApi(obj) {
-    this.setState( 
+    this.setState(
       {
         apodDataVisible: true,
         hasErrored: false,
@@ -34,7 +34,7 @@ class ApodData extends React.Component {
 
   onFailureApi(error) {
     console.log(error);
-    this.setState( 
+    this.setState(
       {
         apodDataVisible: false,
         hasErrored: true,
@@ -46,34 +46,15 @@ class ApodData extends React.Component {
     if(isVisible) {
       return (
         <div className="card-body">
-          <h5 className="card-title"> Space article of the day! </h5>
-          <p className="card-title">{this.state.title}</p>
-          <a data-toggle="modal" href="#exampleModal" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
-            Read More!
-          </a>
-          <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h5 className="modal-title" id="exampleModalLabel">{this.state.title}</h5>
-                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">X</span>
-                  </button>
-                </div>
-                <div className="modal-body">
-                  <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>
-                  <p className="card-text">{this.state.description}</p>
-                  <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h5 className="card-text">{this.state.title}</h5>
+          <p className="card-text">{this.state.description}</p>
+          <p className="card-text"><small className="text-muted">Date: {this.state.date}</small></p>
         </div>
       )
     } else {
       return(
         <div>
-           <p>Loading...</p> 
+           <p>Loading...</p>
         </div>
       )
     }
@@ -81,8 +62,8 @@ class ApodData extends React.Component {
 
   renderFailureResponse() {
     return(
-      <div className="card-body">
-        <h3 className="card-title">Data not available temporarily</h3>
+      <div>
+        <h3 className="card-text">Data not available temporarily</h3>
       </div>
     )
   }
@@ -116,8 +97,8 @@ class ApodData extends React.Component {
       apodData = this.renderFailureResponse();
     }
     return (
-      <div>
-        <img src={this.state.image} alt="ApodImage" className="card-img-top card-details"/>
+      <div className="card mb-3">
+        <img src={this.state.image} alt="ApodImage" className="card-img-top"/>
         {apodData}
       </div>
     );

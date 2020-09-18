@@ -32,12 +32,12 @@ class ExploresController < ApplicationController
     if search_artists.present?
       @trending_artist_info = Services::GetArtistsInfo.new(country: country).fetch_top_chart_artists_by_country
       if @trending_artist_info.failure?
-        redirect_to(trending_explores_path, flash: { danger: "#{@trending_artist_info.error}" })
+        redirect_to(trending_explores_path, flash: { danger: @trending_artist_info.error.to_s })
       end
     elsif search_tracks.present?
       @trending_track_info = Services::GetArtistsInfo.new(country: country).fetch_top_chart_tracks_by_country
       if @trending_track_info.failure?
-        redirect_to(trending_explores_path, flash: { danger: "#{@trending_track_info.error}" })
+        redirect_to(trending_explores_path, flash: { danger: @trending_track_info.error.to_s })
       end
     end
   end

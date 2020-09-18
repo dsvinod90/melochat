@@ -58,6 +58,9 @@ class RandomNumberTrivia extends React.Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Random Number Trivia</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">X</span>
+                </button>
               </div>
               <div className="modal-body">
                 {this.state.trivia}
