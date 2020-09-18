@@ -1,37 +1,46 @@
 <div class='blog-content content-font'>
-  <div class="row row-cols-1 row-cols-md-2">
-    <div class="col mb-4">
-      <div class="card">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
         <%= link_to artists_explores_path do %>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/8103TSpkamL._SL1500_.jpg" id="artists" class="card-img-top" alt="Artists" style="width:100%;height:250px;">
+          <img src="https://www.ultimate-guitar.com/static/article/news/1/105401_0_wide_ver1587491992.jpg@642" id="artists" class="d-block w-100">
         <% end %>
-        <div class="card-body">
-          <h5 class="card-title">Artists</h5>
-          <p class="card-text">Get info on your favourite artists and their albums.</p>
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Artists</h3>
+          <h5>Get info on your favourite artists and their albums.</5>
         </div>
       </div>
-    </div>
-    <div class="col mb-4">
-      <div class="card">
+      <div class="carousel-item">
         <%= link_to charts_explores_path do %>
-          <img src="https://resources.tidal.com/images/dba6ef57/fcff/41da/8548/6ac5761e22df/640x640.jpg" id="charts" class="card-img-top" alt="Charts" style="width:100%;height:250px;">
+          <img src="https://images1.phoenixnewtimes.com/imager/u/745xauto/10974492/dsc_6425.jpg" id="charts" class="d-block w-100">
         <% end %>
-        <div class="card-body">
-          <h5 class="card-title">Charts</h5>
-          <p class="card-text">Get the top albums and tracks that made the top of the charts.</p>
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Charts</h3>
+          <h5>Get the top albums and tracks that made the top of the charts.</h5>
         </div>
       </div>
-    </div>
-    <div class="col mb-4">
-      <div class="card">
+      <div class="carousel-item">
         <%= link_to trending_explores_path do %>
-          <img src="https://c.dvdfab.cn/upload/resource/top-rock-artists-5.jpeg" id="trending" class="card-img-top" alt="Tracks" style="width:100%;height:250px;">
+          <img src="https://c.dvdfab.cn/upload/resource/top-rock-artists-5.jpeg" id="trending" class="d-block w-100">
         <% end %>
-        <div class="card-body">
-          <h5 class="card-title">Trending in your country</h5>
-          <p class="card-text">Get the top tracks and artists trending in your country.</p>
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Trending in your country</h3>
+          <h5>Get the top tracks and artists trending in your country.</h5>
         </div>
       </div>
     </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 </div>
