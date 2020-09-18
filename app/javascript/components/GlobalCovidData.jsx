@@ -68,8 +68,8 @@ class GlobalCovidData extends React.Component {
                 <table className='table table-sm font-weight-bold'>
                     <tbody>
                       <tr className='text-primary'>
-                          <td> Total Confirmed </td>
-                          <td>
+                          <td className="text-center"> Total Confirmed </td>
+                          <td className="text-center">
                               <Spring
                                 from={{ number: this.state.totalConfirmedCases - 1000 }}
                                 to={{ number: this.state.totalConfirmedCases }}
@@ -79,8 +79,8 @@ class GlobalCovidData extends React.Component {
                             </td>
                       </tr>
                       <tr className='text-danger'>
-                          <td> Total Deaths </td>
-                          <td>
+                          <td className="text-center"> Total Deaths </td>
+                          <td className="text-center">
                               <Spring
                                 from={{ number: this.state.totalDeathCases - 1000 }}
                                 to={{ number: this.state.totalDeathCases }}
@@ -90,8 +90,8 @@ class GlobalCovidData extends React.Component {
                             </td>
                       </tr>
                       <tr className='text-success'>
-                          <td> Total Recovered </td>
-                          <td>
+                          <td className="text-center"> Total Recovered </td>
+                          <td className="text-center">
                               <Spring
                                 from={{ number: this.state.totalRecoveredCases - 1000 }}
                                 to={{ number: this.state.totalRecoveredCases }}
@@ -101,8 +101,8 @@ class GlobalCovidData extends React.Component {
                           </td>
                       </tr>
                       <tr className='text-primary'>
-                          <td> New Confirmed </td>
-                          <td>
+                          <td className="text-center"> New Confirmed </td>
+                          <td className="text-center">
                               <Spring
                                 from={{ number: this.state.newConfirmedCases - 1000 }}
                                 to={{ number: this.state.newConfirmedCases }}
@@ -112,8 +112,8 @@ class GlobalCovidData extends React.Component {
                           </td>
                       </tr>
                       <tr className='text-danger'>
-                          <td> New Deaths </td>
-                          <td>
+                          <td className="text-center"> New Deaths </td>
+                          <td className="text-center">
                               <Spring
                                 from={{ number: this.state.newDeathCases - 1000 }}
                                 to={{ number: this.state.newDeathCases }}
@@ -123,8 +123,8 @@ class GlobalCovidData extends React.Component {
                           </td>
                       </tr>
                       <tr className='text-success'>
-                          <td> New Recovered </td>
-                          <td>
+                          <td className="text-center"> New Recovered </td>
+                          <td className="text-center">
                               <Spring
                                 from={{ number: this.state.newRecoveredCases - 1000 }}
                                 to={{ number: this.state.newRecoveredCases }}

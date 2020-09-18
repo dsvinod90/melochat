@@ -254,7 +254,7 @@ class CountryCovidUpdate extends React.Component {
     }
     return(
         <div>
-          <div className="row">
+          <div className="row justify-content-center">
             <form className="text-center">
               <div className="input-group mb-3">
                 <div className="input-group-prepend">
@@ -267,8 +267,8 @@ class CountryCovidUpdate extends React.Component {
               </div>
             </form>
           </div>
-            {covidData}
-            {chartData}
+          {covidData}
+          {chartData}
         </div>
     )
   }

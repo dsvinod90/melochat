@@ -16,3 +16,64 @@
  .right-nav-bar{
     margin-bottom: 20px;
  }
+
+ .covid-sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  opacity: 0.96;
+}
+
+.covid-sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.covid-sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.covid-sidebar .covid-closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.covid-openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.covid-openbtn:hover {
+  background-color: #444;
+}
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#covid-mainbar {
+  transition: margin-left .5s; /* If you want a transition effect */
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .covid-sidebar {padding-top: 15px;}
+  .covid-sidebar a {font-size: 18px;}
+}

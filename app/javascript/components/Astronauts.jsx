@@ -18,7 +18,7 @@ class Astronauts extends React.Component {
   }
 
   onSuccessApi(obj) {
-    this.setState( 
+    this.setState(
       {
         astronautDataVisible: true,
         numberOfAstronauts: obj['astronaut_data']['number'],
@@ -30,7 +30,7 @@ class Astronauts extends React.Component {
 
   onFailureApi(error) {
     console.log(error);
-    this.setState( 
+    this.setState(
       {
         astronautDataVisible: false
       }
@@ -41,34 +41,27 @@ class Astronauts extends React.Component {
     const astronauts = this.state.people;
     return (
       <div className="card-body">
-        <h5 className="card-title"> Astronauts in space now! </h5>
-        <p className="card-title">There are <span><b>{this.state.numberOfAstronauts}</b></span> astronauts in space at this moment.</p>
-        <a data-toggle="modal" href="#exampleModal3" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
-          Read More!
-        </a>
-        <div className="modal fade" id="exampleModal3" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-          <div className="modal-dialog" role="document">
+        <p className="card-text text-center">There are <span><b>{this.state.numberOfAstronauts}</b></span> astronauts in space at this moment.</p>
+        <table className="table table-hover table-dark">
+          <thead>
+            <tr>
+              <th class="text-center" scope="col">Astronaut</th>
+              <th class="text-center" scope="col">Spacecraft</th>
+            </tr>
+          </thead>
+          <tbody>
             {
               astronauts.map((value, index) => {
-                  return (
-                      <div key={index}>
-                        <div className="modal-content">
-                          <div className="modal-header">
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">X</span>
-                            </button>
-                          </div>
-                          <div className="modal-body">
-                              <p className="card-text">Name: <span><b>{value['name']}</b></span></p>
-                              <p className="card-text">Craft: <span><b>{value['craft']}</b></span></p>
-                          </div>
-                        </div>
-                      </div>
-                  )
-              })
-            }
-          </div>
-        </div>
+                return (
+                  <tr key={index}>
+                    <td class="text-center">{value['name']}</td>
+                    <td class="text-center">{value['craft']}</td>
+                  </tr>
+                )
+              }
+            )}
+          </tbody>
+        </table>
       </div>
     )
   }
@@ -109,8 +102,8 @@ class Astronauts extends React.Component {
       astronautData = this.renderFailureResponse();
     }
     return (
-      <div>
-        <img src={this.state.astronaut_image} alt="AsteroidImage" className="card-img-top card-details"/>
+      <div className="card mb-3">
+        <img src={this.state.astronaut_image} alt="AsteroidImage" className="card-img-top"/>
         {astronautData}
       </div>
     );

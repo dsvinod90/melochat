@@ -1,33 +1,53 @@
-<div class='row content-font' style="margin: 2px;">
-    <div class='card-deck col-8 mb-3' style="max-height: 100px;">
-        <div class="row col-12 justify-content-center" style="margin-left: 2px; margin-bottom: 5px; border-bottom-style: solid; border-width: 0.5px; border-color: #B0B0B0;">
-            <%= react_component("RandomNumberTrivia", { randomNumberTriviaUrl: random_number_trivia_welcome_index_path }) %> 
-            <%= react_component("RandomDateTrivia", { randomDateTriviaUrl: random_date_trivia_welcome_index_path }) %> 
+<div class='row content-font justify-content-center' style="margin: 2px;">
+    <div class='col-11 mb-3' style="max-height: 100px;">
+      <div class="row col-12 justify-content-center" style="margin-left: 2px; margin-bottom: 5px; border-bottom-style: solid; border-width: 0.5px; border-color: #B0B0B0;">
+        <%= react_component("RandomNumberTrivia", { randomNumberTriviaUrl: random_number_trivia_welcome_index_path }) %>
+        <%= react_component("RandomDateTrivia", { randomDateTriviaUrl: random_date_trivia_welcome_index_path }) %>
+        <div style="margin-left: 10px; padding-top: 20px;">
+          <button type="button" class="btn btn-outline-dark" onclick="openNav()">
+            Covid Updates
+          </button>
         </div>
-        <div class="row" style="margin-top: 5px;">
-            <div class="card bg-light justify-content-center">
-                <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %> 
-            </div>
-            <div class="card bg-light justify-content-center">
-                <%= react_component("AsteroidNewsData", { asteroidDataUrl: space_asteroid_news_path }) %> 
-            </div>
-            <div class="card bg-light justify-content-center">
-                <%= react_component("Astronauts", { astronautDataUrl: space_astronauts_data_path }) %> 
-            </div>
-        </div>
+      </div>
+      <div class="row justify-content-center" style="margin-top: 5px;">
+        <h3> Space Article of the Day! </h3>
+        <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %>
+      </div>
+      <div class="row justify-content-center" style="margin-top: 5px;">
+        <h3> Asteroids' close encounters! </h3>
+        <%= react_component("AsteroidNewsData", { asteroidDataUrl: space_asteroid_news_path }) %>
+      </div>
+      <div class="row justify-content-center" style="margin-top: 5px;">
+        <h3> Astronauts in space today! </h3>
+        <%= react_component("Astronauts", { astronautDataUrl: space_astronauts_data_path }) %>
+      </div>
     </div>
-    <div class='col-4 bg-light overflow-auto right-nav-bar' style="margin-left: 15px;">
-        <h2 class='text-center card-details'>
-            <%= link_to 'Covid Updates', covid_updates_path %>
-        </h2>
-        <%= react_component(
-            "CountryCovidData",
-            {
-                countrySummaryUrl: country_summary_covid_updates_path,
-                countries: Country.all.collect { |country| { name: country.name, slug: country.slug } }
-            }
-        ) %> 
-        <h4 class='sidebar-section text-center'> Global Updates </h4>
-        <%= react_component("GlobalCovidData", { globalSummaryUrl: global_summary_covid_updates_path }) %> 
+    <div id="myCovidSidebar" class="covid-sidebar">
+      <h2 class='text-center card-details'>
+          <%= link_to 'Covid Updates', covid_updates_path %>
+      </h2>
+      <a href="javascript:void(0)" class="covid-closebtn" onclick="closeNav()">&times;</a>
+      <div class='bg-dark overflow-auto right-nav-bar text-light', style="margin: 10px;">
+          <%= react_component(
+              "CountryCovidData",
+              {
+                  countrySummaryUrl: country_summary_covid_updates_path,
+                  countries: Country.all.collect { |country| { name: country.name, slug: country.slug } }
+              }
+          ) %>
+          <h4 class='sidebar-section text-center'> Global Updates </h4>
+          <%= react_component("GlobalCovidData", { globalSummaryUrl: global_summary_covid_updates_path }) %>
+      </div>
     </div>
 </div>
+
+<script>
+  function openNav() {
+    document.getElementById("myCovidSidebar").style.width = "450px";
+  }
+
+  /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("myCovidSidebar").style.width = "0";
+  }
+</script>

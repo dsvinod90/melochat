@@ -14,6 +14,7 @@ gem('aws-sdk-s3', '~> 1')
 gem('bootsnap', '>= 1.4.2', require: false)
 gem('bootstrap', '~> 4.3.1')
 gem('bootstrap-sass')
+gem('breadcrumbs_on_rails')
 gem('byebug', '~> 11.1')
 gem('chartkick')
 gem('circuitbox')
@@ -34,7 +35,6 @@ gem('sass-rails', '>= 6')
 gem('turbolinks', '~> 5')
 gem('webmock', '~> 3.7', '>= 3.7.6')
 gem('webpacker')
-gem('breadcrumbs_on_rails')
 
 group :development, :test do
   gem 'spring'

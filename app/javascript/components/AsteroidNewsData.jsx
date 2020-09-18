@@ -56,38 +56,34 @@ class AsteroidNewsData extends React.Component {
     const asteroid_objects = this.state.asteroids
     if(isVisible) {
       return (
-        <div className="card-body">
-          <h5 className="card-title"> Asteroids that flew by Earth today! </h5>
-          <p className="card-title">Number of close encounters: <span><b>{this.state.asteroid_count}</b></span></p>
-          <a data-toggle="modal" href="#exampleModal1" style={{position: "absolute", right: 0, bottom: 0, marginRight: "3px", marginBottom: "3px"}}>
-            Read More!
-          </a>
-          <div className="modal fade" id="exampleModal1" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-            <div className="modal-dialog" role="document">
+        <div className="card-body justify-content-center">
+          <p className="card-text text-center">Number of close encounters: <span><b>{this.state.asteroid_count}</b></span></p>
+          <table className="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Comet Name</th>
+                <th scope="col">Min Diameter(Km)</th>
+                <th scope="col">Max Diameter(Km)</th>
+                <th scope="col">Hazardous?</th>
+                <th scope="col">Closest to Earth(Km)</th>
+              </tr>
+            </thead>
+            <tbody>
               {
                 asteroid_objects.map((value, index) => {
-                    return (
-                        <div key={index}>
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Comet Name:  {value['name']}</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">X</span>
-                                    </button>
-                                </div>
-                                <div className="modal-body">
-                                    <p className="card-text">Minimum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_min']}</b></span></p>
-                                    <p className="card-text">Maximum Diameter (in Km): <span><b>{value['estimated_diameter']['kilometers']['estimated_diameter_max']}</b></span></p>
-                                    <p className="card-text">Is it hazardous: {this.isAsteroidHazardous(value['is_potentially_hazardous_asteroid'])}</p>
-                                    <p className="card-text">Closest approach to Earch (in Km): <span><b>{value['close_approach_data'].pop()['miss_distance']['kilometers']}</b></span></p>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                  })
-              }
-            </div>
-          </div>
+                  return (
+                    <tr key={index}>
+                      <td>{value['name']}</td>
+                      <td>{value['estimated_diameter']['kilometers']['estimated_diameter_min']}</td>
+                      <td>{value['estimated_diameter']['kilometers']['estimated_diameter_max']}</td>
+                      <td>{this.isAsteroidHazardous(value['is_potentially_hazardous_asteroid'])}</td>
+                      <td>{value['close_approach_data'].pop()['miss_distance']['kilometers']}</td>
+                    </tr>
+                  )
+                }
+              )}
+            </tbody>
+          </table>
         </div>
       )
     } else {
@@ -136,8 +132,8 @@ class AsteroidNewsData extends React.Component {
       asteroidNewsData = this.renderFailureResponse();
     }
     return (
-      <div>
-        <img src={this.state.asteroid_image} alt="AsteroidImage" className="card-img-top card-details"/>
+      <div className="card mb-3">
+        <img src={this.state.asteroid_image} alt="AsteroidImage" className="card-img-top"/>
         {asteroidNewsData}
       </div>
     );

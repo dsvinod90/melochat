@@ -47,7 +47,7 @@ class RandomDateTrivia extends React.Component {
 
   render() {
     return(
-      <div style={{marginLeft: "10px"}}>
+      <div style={{marginLeft: "10px", marginRight: "10px"}}>
         <p style={{paddingTop: "20px"}}>
           <button type="button" className="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal5"  onClick={() => this.renderTrivia(this.props.randomDateTriviaUrl)}>
             Random Date Trivia
@@ -58,6 +58,9 @@ class RandomDateTrivia extends React.Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">Random Date Trivia</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">X</span>
+                </button>
               </div>
               <div className="modal-body">
                 {this.state.trivia}

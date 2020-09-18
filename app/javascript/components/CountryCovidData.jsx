@@ -73,9 +73,42 @@ class CountryCovidData extends React.Component {
             <div>
                 <table className='table table-sm font-weight-bold'>
                     <tbody>
+                      <tr className='text-primary'>
+                          <td className="text-center"> Active </td>
+                          <td className="text-center">
+                              <Spring
+                                  from={{ number: this.state.activeCases - 1000 }}
+                                  to={{ number: this.state.activeCases }}
+                                  config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                  {props => <div>{props.number}</div>}
+                              </Spring>
+                          </td>
+                      </tr>
+                      <tr className='text-danger'>
+                            <td className="text-center"> Deaths </td>
+                            <td className="text-center">
+                                <Spring
+                                    from={{ number: this.state.deathCases - 1000 }}
+                                    to={{ number: this.state.deathCases }}
+                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                    {props => <div>{props.number}</div>}
+                                </Spring>
+                            </td>
+                      </tr>
+                      <tr className='text-success'>
+                          <td className="text-center"> Recovered </td>
+                          <td className="text-center">
+                              <Spring
+                                  from={{ number: this.state.recoveredCases - 1000 }}
+                                  to={{ number: this.state.recoveredCases }}
+                                  config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
+                                  {props => <div>{props.number}</div>}
+                              </Spring>
+                          </td>
+                      </tr>
                       <tr className='text-info'>
-                            <td> Confirmed Cases </td>
-                            <td>
+                            <td className="text-center"> Confirmed Cases </td>
+                            <td className="text-center">
                                 <Spring
                                     from={{ number: this.state.confirmedCases - 1000 }}
                                     to={{ number: this.state.confirmedCases }}
@@ -84,42 +117,9 @@ class CountryCovidData extends React.Component {
                                 </Spring>
                             </td>
                         </tr>
-                      <tr className='text-danger'>
-                            <td> Deaths </td>
-                            <td>
-                                <Spring
-                                    from={{ number: this.state.deathCases - 1000 }}
-                                    to={{ number: this.state.deathCases }}
-                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
-                                    {props => <div>{props.number}</div>}
-                                </Spring>
-                            </td>
-                        </tr>
-                        <tr className='text-success'>
-                            <td> Recovered </td>
-                            <td>
-                                <Spring
-                                    from={{ number: this.state.recoveredCases - 1000 }}
-                                    to={{ number: this.state.recoveredCases }}
-                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
-                                    {props => <div>{props.number}</div>}
-                                </Spring>
-                            </td>
-                        </tr>
-                        <tr className='text-primary'>
-                            <td> Active </td>
-                            <td>
-                                <Spring
-                                    from={{ number: this.state.activeCases - 1000 }}
-                                    to={{ number: this.state.activeCases }}
-                                    config={{ tension: 280, friction: 120, duration: 200, delay: 400 }}>
-                                    {props => <div>{props.number}</div>}
-                                </Spring>
-                            </td>
-                        </tr>
                         <tr>
-                            <td> Date of Record </td>
-                            <td>{this.state.date}</td>
+                            <td className="text-light text-center"> Date of Record </td>
+                            <td className="text-light text-center">{this.state.date}</td>
                         </tr>
                     </tbody>
                 </table>
