@@ -6,5 +6,6 @@ class Admin < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable,
-         :timeoutable
+         :timeoutable,
+         :confirmable
 end
