@@ -103,6 +103,7 @@ class Astronauts extends React.Component {
     }
     return (
       <div className="card mb-3">
+        <h3 className="text-center"> Astronauts in space today! </h3>
         <img src={this.state.astronaut_image} alt="AsteroidImage" className="card-img-top"/>
         {astronautData}
       </div>
