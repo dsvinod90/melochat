@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
 
   def create
     params[:blog][:author] = current_admin.name
-    blog = Blog.new(create_blog_params.except(:cover_photo))
+    blog = Blog.new(create_blog_params.merge(admin_id: current_admin.id).except(:cover_photo))
     if blog.save
       blog.cover_photo.attach(create_blog_params[:cover_photo])
       redirect_to(blog_path(blog.id), flash: { success: 'Article created successfully' })
