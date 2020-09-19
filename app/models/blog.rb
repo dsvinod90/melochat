@@ -14,6 +14,7 @@ class Blog < ApplicationRecord
   validate :category_should_be_valid
 
   has_many :comments, dependent: :destroy
+  has_one_attached :cover_photo
 
   private
 

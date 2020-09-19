@@ -19,8 +19,9 @@ class BlogsController < ApplicationController
 
   def create
     params[:blog][:author] = current_admin.name
-    blog = Blog.new(create_blog_params)
+    blog = Blog.new(create_blog_params.except(:cover_photo))
     if blog.save
+      blog.cover_photo.attach(create_blog_params[:cover_photo])
       redirect_to(blog_path(blog.id), flash: { success: 'Article created successfully' })
     else
       flash.now[:danger] = blog.errors.full_messages.to_sentence
@@ -60,6 +61,6 @@ class BlogsController < ApplicationController
   end
 
   def create_blog_params
-    params.require(:blog).permit(:title, :author, :description, :body, :category)
+    params.require(:blog).permit(:title, :author, :description, :body, :category, :cover_photo)
   end
 end
