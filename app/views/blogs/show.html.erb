@@ -21,7 +21,14 @@
 </div>
 
 <div id='blog-body' class='row content-font blog-paragraph'>
-  <p><%= markdown(@blog.body) %></p>
+  <% if @blog.cover_photo.attached? %>
+    <div class="row col-12 justify-content-center">
+      <%= image_tag @blog.cover_photo, class: "img-thumbnail" %>
+    </div>
+  <% end %>
+  <div class="row col-12">
+    <p><%= markdown(@blog.body) %></p>
+  </div>
   <div id="mySidebar" class="sidebar content-font">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
     <div class="accordion" id="accordionComment">
