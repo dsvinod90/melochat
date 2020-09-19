@@ -45,8 +45,8 @@ class Astronauts extends React.Component {
         <table className="table table-hover table-dark">
           <thead>
             <tr>
-              <th class="text-center" scope="col">Astronaut</th>
-              <th class="text-center" scope="col">Spacecraft</th>
+              <th className="text-center" scope="col">Astronaut</th>
+              <th className="text-center" scope="col">Spacecraft</th>
             </tr>
           </thead>
           <tbody>
@@ -54,8 +54,8 @@ class Astronauts extends React.Component {
               astronauts.map((value, index) => {
                 return (
                   <tr key={index}>
-                    <td class="text-center">{value['name']}</td>
-                    <td class="text-center">{value['craft']}</td>
+                    <td className="text-center">{value['name']}</td>
+                    <td className="text-center">{value['craft']}</td>
                   </tr>
                 )
               }

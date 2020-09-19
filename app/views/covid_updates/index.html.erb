@@ -7,7 +7,7 @@
             {
                 countrySummaryUrl: country_summary_covid_updates_path,
                 dateWiseSummaryUrl: date_wise_country_summary_covid_updates_path,
-                countries: Country.all.collect { |country| { name: country.name, slug: country.slug } }
+                countries: Country.all.sort_by { |country| country.name }.collect { |country| { name: country.name, slug: country.slug } }
             }
         ) %> 
     </div>
