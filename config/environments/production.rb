@@ -96,7 +96,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'hypocryte.monster',
     user_name:            'mail@hypocryte.monster',
-    password:             'coXfoh-puqzys-4kicjo',
+    password:             Rails.application.credentials[:email][:pass_key],
     authentication:       'plain',
     enable_starttls_auto: true
   }
