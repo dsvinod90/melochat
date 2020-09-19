@@ -209,7 +209,7 @@ class CountryCovidUpdate extends React.Component {
                 <h2 className='covid-heading text-center'> Cummulative weekly statistics </h2>
                 <div className='blog-content'>
                     <LineChart data={this.state.allStatus} width="1000px" height="400px"/>
-                </div>  
+                </div>
             </div>
           )
       }

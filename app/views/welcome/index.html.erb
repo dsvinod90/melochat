@@ -32,7 +32,7 @@
               "CountryCovidData",
               {
                   countrySummaryUrl: country_summary_covid_updates_path,
-                  countries: Country.all.collect { |country| { name: country.name, slug: country.slug } }
+                  countries: Country.all.sort_by { |country| country.name }.collect { |country| { name: country.name, slug: country.slug } }
               }
           ) %>
           <h4 class='sidebar-section text-center'> Global Updates </h4>
