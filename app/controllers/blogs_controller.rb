@@ -2,6 +2,7 @@
 
 class BlogsController < ApplicationController
   before_action :authenticate_admin!, except: %i[index show]
+  before_action :blog_should_belong_to_admin, only: %i[edit update destroy]
 
   def index
     @blogs = Blog.where(category: blog_params[:type])
@@ -62,5 +63,13 @@ class BlogsController < ApplicationController
 
   def create_blog_params
     params.require(:blog).permit(:title, :author, :description, :body, :category, :cover_photo)
+  end
+
+  def blog_should_belong_to_admin
+    blog = Blog.find(blog_params[:id])
+    blog_admin = blog.admin
+    unless current_admin == blog_admin
+      redirect_to(blog_path(blog.id), flash: { danger: 'Cannot perform this operation' })
+    end
   end
 end
