@@ -1,5 +1,5 @@
 <div class='row blog-paragraph'>
-  <% if current_admin.present? %>
+  <% if current_admin.present? && current_admin == @blog.admin %>
     <div class='text-left blog-content content-font'>
       <%= link_to edit_blog_path do %>
         <i class="fa fa-pencil-square-o fa-lg edit-button" aria-hidden="true"></i>

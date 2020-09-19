@@ -8,4 +8,6 @@ class Admin < ApplicationRecord
          :validatable,
          :timeoutable,
          :confirmable
+
+  has_many :blogs
 end
