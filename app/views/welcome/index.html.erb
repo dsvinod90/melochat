@@ -10,15 +10,12 @@
         </div>
       </div>
       <div class="row justify-content-center" style="margin-top: 5px;">
-        <h3> Space Article of the Day! </h3>
         <%= react_component("ApodData", { apodDataUrl: space_apod_path }) %>
       </div>
       <div class="row justify-content-center" style="margin-top: 5px;">
-        <h3> Asteroids' close encounters! </h3>
         <%= react_component("AsteroidNewsData", { asteroidDataUrl: space_asteroid_news_path }) %>
       </div>
       <div class="row justify-content-center" style="margin-top: 5px;">
-        <h3> Astronauts in space today! </h3>
         <%= react_component("Astronauts", { astronautDataUrl: space_astronauts_data_path }) %>
       </div>
     </div>

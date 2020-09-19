@@ -133,6 +133,7 @@ class AsteroidNewsData extends React.Component {
     }
     return (
       <div className="card mb-3">
+        <h3 className="text-center"> Asteroids' close encounters! </h3>
         <img src={this.state.asteroid_image} alt="AsteroidImage" className="card-img-top"/>
         {asteroidNewsData}
       </div>

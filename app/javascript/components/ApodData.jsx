@@ -98,6 +98,7 @@ class ApodData extends React.Component {
     }
     return (
       <div className="card mb-3">
+        <h3 className="text-center"> Space Article of the Day! </h3>
         <img src={this.state.image} alt="ApodImage" className="card-img-top"/>
         {apodData}
       </div>
