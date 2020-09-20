@@ -27,6 +27,9 @@ Rails.application.routes.draw do
       get 'trending'
     end
   end
+  resources :users
+  get 'users/:token/unsubscribe', to: 'users#unsubscribe', as: 'unsubscribe'
+  put 'users/:token/unsubscribe_user', to: 'users#unsubscribe_user', as: 'unsubscribe_user'
   get 'space/apod', to: 'space#apod'
   get 'space/asteroid_news', to: 'space#asteroid_news'
   get 'space/astronauts_data', to: 'space#astronauts_data'
