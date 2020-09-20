@@ -10,6 +10,17 @@ class UsersController < ApplicationController
         welcome_index_path,
         flash: { notice: 'You have successfully subscribed! Thank you for subscribing with us.' }
       )
+    elsif user.errors.full_messages.include?('Email has already been taken')
+      existing_user = User.find_by(email: user_params[:email])
+      if existing_user&.subscribed
+        redirect_to(welcome_index_path, flash: { notice: 'You have already subscribed!' })
+      else
+        existing_user.update_attributes(name: user_params[:name], subscribed: true)
+        redirect_to(
+          welcome_index_path,
+          flash: { notice: 'You have successfully subscribed! Thank you for coming back to us.' }
+        )
+      end
     else
       flash.now[:danger] = user.errors.full_messages.to_sentence
       render(:new)

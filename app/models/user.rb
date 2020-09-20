@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   validates_presence_of :name, :email
+  validates :email, uniqueness: true
 
   before_create :set_token_and_subscription
 
