@@ -1,0 +1,6 @@
+<div class='content-font'>
+  <p class="text-center"> Please click on the button below to unsubscribe </p>
+  <div class="text-center">
+    <%= link_to 'Unsubscribe', unsubscribe_user_path(@user.token), method: :put, class: 'btn btn-danger' %>
+  </div>
+</div>
