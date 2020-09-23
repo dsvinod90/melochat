@@ -12,7 +12,7 @@ module Services
                 "email": to
               }
             ],
-            "dynamic_template_data": subsitutions.merge(unsubscribe: Rails.application.routes.url_helpers.unsubscribe_url(user.token, host: 'https://hypocryte.monster'))
+            "dynamic_template_data": subsitutions.merge(unsubscribe: Rails.application.routes.url_helpers.unsubscribe_url(user.token, host: 'https://www.hypocryte.monster'))
           }
         ],
         "from": {
