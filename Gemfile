@@ -35,6 +35,7 @@ gem('sass-rails', '>= 6')
 gem('turbolinks', '~> 5')
 gem('webmock', '~> 3.7', '>= 3.7.6')
 gem('webpacker')
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'spring'

@@ -37,3 +37,4 @@ yarn-debug.log*
 .DS_Store
 .vscode
 */.DS_Store
+sendgrid.env
