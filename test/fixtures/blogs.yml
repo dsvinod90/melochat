@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  body: MyText
-  category: MyString
-  author: MyString
+music_sample:
+  title: Steven Wilson
+  body: A Prodigy
+  category: music
+  author: Varun
 
-two:
-  title: MyString
-  body: MyText
-  category: MyString
-  author: MyString
+tech_sample:
+  title: Ruby on Rails
+  body: Integrate Sendgrid with Rails
+  category: tech
+  author: Varun
