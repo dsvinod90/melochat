@@ -6,3 +6,5 @@ en:
     api_error: 'Unable to fetch data. Please refresh the page.'
   covid:
     api_error: 'Unable to fetch data for countries. Please try later'
+  sendgrid:
+    user_not_subscribed: 'User has not subscribed'
