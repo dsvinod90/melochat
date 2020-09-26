@@ -20,8 +20,8 @@ module Services
 
       mail_object = SendGrid::API.new(api_key: Rails.application.credentials[:sendgrid][:api_key])
       begin
-        response = mail_object.client.mail._("send").post(request_body: data)
-        return response.status_code
+        response = mail_object.client.mail._('send').post(request_body: data)
+        response.status_code
       rescue Exception => e
         errors.add(:base, e.message)
         false

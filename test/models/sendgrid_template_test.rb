@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require('test_helper')
 
 class SendgridTemplateTest < ActiveSupport::TestCase
   test 'does not save template when name is not present' do

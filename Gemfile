@@ -29,13 +29,16 @@ gem('puma', '~> 4.3')
 gem('rails', '~> 6.0.1')
 gem('react-rails')
 gem('redcarpet')
+gem('redis')
+gem('redis-rails')
 gem('rubocop')
 gem('rubyzip', '>= 1.3.0')
 gem('sass-rails', '>= 6')
+gem('sendgrid-ruby')
+gem('sidekiq')
 gem('turbolinks', '~> 5')
 gem('webmock', '~> 3.7', '>= 3.7.6')
 gem('webpacker')
-gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'spring'
