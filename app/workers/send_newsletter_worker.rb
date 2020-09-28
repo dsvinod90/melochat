@@ -3,8 +3,6 @@
 class SendNewsletterWorker
   include Sidekiq::Worker
 
-  sidekiq_options queue: :default
-
   def perform(user_ids)
     user_ids.each do |user_id|
       user = User.find_by(id: user_id)

@@ -1,1 +1,1 @@
-worker: bin/rails sidekiq -e $RACK_ENV -C config/sidekiq.yml
+worker:  bundle exec sidekiq -c 2
