@@ -36,7 +36,7 @@ module Services
             dynamic_template_data: substitutions.merge(unsubscribe: unsubscribe_url)
           }
         ],
-        from: { email: host_email },
+        from: { email: host_email, name: 'Hypocryte' },
         template_id: template.template_id
       }
     end
