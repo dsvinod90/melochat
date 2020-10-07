@@ -4,14 +4,9 @@ module Admins
   class RegistrationsController < Devise::RegistrationsController
     layout 'application'
 
-    # GET /resource/sign_up
-
-    # POST /resource
-
-    # GET /resource/edit
-
-    # PUT /resource
-
-    # DELETE /resource
+    def create
+      super
+      Services::CreateAdminRole.new(@admin.id, params[:admin][:role_id]).process
+    end
   end
 end
