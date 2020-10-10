@@ -1,0 +1,60 @@
+<div class='row justify-content-center'>
+  <div class='col-6'>
+    <div class='content-font'>
+      <h2 style='margin-top: 10px; text-align: center;'> Newsletter Settings </h2>
+    </div>
+    <div class='content-font table-responsive' style='padding: 30px;'>
+      <%= button_to 'Send to all', send_newsletters_admins_path, method: :get, params: {user_id: 'all'}, class: 'btn btn-primary', style: 'margin: 5px;' %>
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th scope='col'>SL.NO.</th>
+            <th scope='col'>Select</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Email</th>
+            <th scope='col'>Subscription</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= form_with(url: send_newsletters_admins_path, method: 'get', data: { remote: false }) do |f| %>
+            <% @users.each_with_index do |user, index| %>
+              <tr>
+                <td> <%= index+1 %> </td>
+                <td> <%= f.check_box(:user_id, { multiple: true }, user.id, false) %> </td>
+                <td> <%= user.name %> </td>
+                <td> <%= user.email %> </td>
+                <td> <%= user.subscribed ? 'Yes' : 'No' %> </td>
+              </tr>
+            <% end %>
+            <%= f.submit 'Send to selected', class: 'btn btn-primary', style: 'margin: 5px;' %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class='col-6'>
+    <div class='content-font'>
+      <h2 style='margin-top: 10px; text-align: center;'> Admin List </h2>
+      <table class="table table-hover text-center">
+        <thead>
+          <tr>
+            <th scope='col'>SL.NO.</th>
+            <th scope='col'>Name</th>
+            <th scope='col'>Email</th>
+            <th scope='col'>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @admins.each_with_index do |admin, index| %>
+            <tr>
+              <td> <%= index+1 %> </td>
+              <td> <%= admin.name %> </td>
+              <td> <%= admin.email %> </td>
+              <td> <%= admin.role_id %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

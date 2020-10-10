@@ -1,5 +1,5 @@
 en:
-  blogs: 
+  blogs:
     article_not_found: 'Article not present!'
     invalid_category: 'Invalid category!'
   nasa:
@@ -8,3 +8,8 @@ en:
     api_error: 'Unable to fetch data for countries. Please try later'
   sendgrid:
     user_not_subscribed: 'User has not subscribed'
+  admin:
+    invalid_role: 'Admin role is not valid'
+    role_not_present: 'Role is not present'
+    newsletter_sent: 'Newsletter has been sent to the selected users'
+    users_not_selected: 'Please select user(s) to send newsletters OR send to all users'

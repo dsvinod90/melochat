@@ -35,7 +35,7 @@
       <% name = 'danger' if name == 'alert' %>
       <%= content_tag :div, msg, class: "alert alert-#{name}" %>
     <% end %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-background">
       <%= link_to 'Hypocryte', welcome_index_path, class: 'navbar-brand main-logo animate__animated animate__fadeInDown' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar01" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -51,8 +51,8 @@
           <li class="nav-item categories <%= 'active' if params[:type] == 'explore'%>">
             <%= link_to 'Explore', explores_path(params: { type: 'explore' }), class: 'nav-link navbar-brand navbar-font' %>
           </li>
-          <li class="nav-item categories <%= 'active' if current_page? (new_blog_path) %>">
-            <%= link_to 'Create an Article', new_blog_path, class: 'nav-link navbar-brand navbar-font' %>
+          <li class="nav-item categories <%= 'active' if current_page? (admins_path) %>">
+            <%= link_to 'Admin Login', admins_path, class: 'nav-link navbar-brand navbar-font' %>
           </li>
           <% if current_admin.present? %>
             <li class="nav-item categories <%= 'active' if current_page? (destroy_admin_session_path) %>">
@@ -67,7 +67,7 @@
     </nav>
     <div class='container-fluid'>
       <%= yield %>
-        <nav class="navbar fixed-bottom navbar-light bg-light navbar-font justify-content-around" style="max-height: 40px;">
+        <nav class="navbar fixed-bottom navbar-light navbar-font justify-content-around navbar-background" style="max-height: 40px;">
           <p class="lead">
             <small>
               We did not misspell "Hypocrite".
