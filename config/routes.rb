@@ -40,10 +40,9 @@ Rails.application.routes.draw do
     collection do
       get 'show_admins_list'
       get 'show_users_list'
-      get 'email_templates'
       get 'newsletter_settings'
       get 'send_newsletters'
-      put 'update_templates'
     end
   end
+  resources :sendgrid_templates
 end

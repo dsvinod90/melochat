@@ -32,15 +32,4 @@ class AdminsController < ApplicationController
       redirect_to(newsletter_settings_admins_path, flash: { alert: I18n.t('admin.users_not_selected') })
     end
   end
-
-  def update_templates
-    template_id = params[:template_id]
-    activation_status = params[:active]
-    template = SendgridTemplate.find_by(id: template_id)
-    if template.update_attributes(active: activation_status)
-      redirect_to(email_templates_admins_path, flash: { success: I18n.t('admin.template_updated') })
-    else
-      redirect_to(email_templates_admins_path, flash: { alert: template.errors.full_messages })
-    end
-  end
 end
