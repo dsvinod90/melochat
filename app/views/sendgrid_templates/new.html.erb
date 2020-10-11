@@ -1,0 +1,51 @@
+<div class='content-font'>
+  <%= link_to '< Back', sendgrid_templates_path, class: 'btn btn-outline-dark btn-sm', style: 'margin-top: 10px; margin-left: 20px;' %>
+  <%= form_with model: @template, local: true do |f| %>
+    <div class='row blog-content justify-content-center'>
+      <div class='input-group'>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Template ID</span>
+        </div>
+      <%= f.text_field :template_id, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='row blog-content justify-content-center'>
+      <div class='input-group'>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Template Code</span>
+        </div>
+      <%= f.text_field :code, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='row blog-content justify-content-center'>
+      <div class='input-group'>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Template Name</span>
+        </div>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='row blog-content justify-content-center'>
+      <div class='input-group'>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Template Version</span>
+        </div>
+      <%= f.text_field :version, class: 'form-control' %>
+      </div>
+    </div>
+    <div class='row blog-content justify-content-center'>
+      <div class='input-group'>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Active</span>
+        </div>
+        <%= f.label :active, 'True', value: true, style: 'margin: 10px;'  %>
+        <%= f.radio_button :active, true, style: 'margin-top: 15px;' %>
+        <%= f.label :active, 'False', value: false, style: 'margin: 10px;' %>
+        <%= f.radio_button :active, false, style: 'margin-top: 15px;'%>
+      </div>
+    </div>
+    <div class='row blog-content justify-content-center'>
+      <%= f.submit "Add", class: 'btn btn-primary add-edit' %>
+    </div>
+  <% end %>
+</div>

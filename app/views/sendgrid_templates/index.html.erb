@@ -1,6 +1,7 @@
-<%= render 'admin_submenu' %>
+<%= render 'admins/admin_submenu' %>
 <div class='row justify-content-center'>
   <div class='content-font'>
+    <%= link_to 'Add new template', new_sendgrid_template_path, class: 'btn btn-primary btn-sm', style: 'margin-top: 20px;' %>
     <h3 style='margin-top: 10px; text-align: center;'> Active Templates </h3>
     <table class="table table-hover text-center">
       <thead>
@@ -11,7 +12,7 @@
           <th scope='col'>Template ID</th>
           <th scope='col'>Version</th>
           <th scope='col'>Active</th>
-          <th scope='col'>Action</th>
+          <th scope='col'>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -24,13 +25,16 @@
             <td> <%= template.version %> </td>
             <td class='text-success'> <%= template.active %> </td>
             <td>
-              <%= button_to 'Deactivate', update_templates_admins_path, params: {template_id: template.id, active: false}, method: :put, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure you want to deactivate this template?' }%>
+              <%= button_to 'Deactivate', sendgrid_template_path(template.id), params: { sendgrid_template: { active: false } }, method: :put, class: 'btn btn-outline-danger btn-sm', data: { confirm: 'Are you sure you want to deactivate this template?' }%>
+            </td>
+            <td>
+              <%= button_to 'Edit', edit_sendgrid_template_path(template.id), method: :get, class: 'btn btn-outline-dark btn-sm' %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
-    <h3 style='margin-top: 30px; text-align: center;'> Inactive Templates </h3>
+    <h3 style='margin-top: 50px; text-align: center;'> Inactive Templates </h3>
     <table class="table table-hover text-center">
       <thead>
         <tr>
@@ -40,7 +44,7 @@
           <th scope='col'>Template ID</th>
           <th scope='col'>Version</th>
           <th scope='col'>Active</th>
-          <th scope='col'>Action</th>
+          <th scope='col'>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -53,7 +57,10 @@
             <td> <%= template.version %> </td>
             <td class='text-danger'> <%= template.active %> </td>
             <td>
-              <%= button_to 'Activate', update_templates_admins_path, params: {template_id: template.id, active: true}, method: :put, class: 'btn btn-success btn-sm', data: { confirm: 'Are you sure you want to activate this template?' }%>
+              <%= button_to 'Activate', sendgrid_template_path(template.id), params: { sendgrid_template: { active: true } }, method: :put, class: 'btn btn-outline-success btn-sm', data: { confirm: 'Are you sure you want to activate this template?' }%>
+            </td>
+            <td>
+              <%= button_to 'Edit', edit_sendgrid_template_path(template.id), method: :get, class: 'btn btn-outline-dark btn-sm' %>
             </td>
           </tr>
         <% end %>

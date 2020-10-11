@@ -15,3 +15,5 @@ en:
     sent_to_all: 'Newsletter has been sent to all subscribed users'
     users_not_selected: 'Please select user(s) to send newsletters OR send to all users'
     template_updated: 'Successfully updated template!'
+  sendgrid_template:
+    added_successfully: 'Sendgrid Template has been added successfully!'

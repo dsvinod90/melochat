@@ -25,10 +25,10 @@
               <td> <%= user.subscribed ? 'Yes' : 'No' %> </td>
             </tr>
           <% end %>
-          <%= f.submit 'Send to selected', class: 'btn btn-sm btn-outline-info', style: 'margin: 5px;' %>
+          <%= f.submit 'Send to selected', class: 'btn btn-sm btn-success', style: 'margin: 5px;' %>
         <% end %>
       </tbody>
-      <%= link_to 'Send to all', send_newsletters_admins_path, method: :get, params: {user_id: 'all'}, class: 'btn btn-sm btn-outline-primary', style: 'margin: 5px;', data: { confirm: 'Are you sure you want to send newsletter to all subscribed users?' } %>
+      <%= link_to 'Send to all', send_newsletters_admins_path, method: :get, params: {user_id: 'all'}, class: 'btn btn-sm btn-primary', style: 'margin: 5px;', data: { confirm: 'Are you sure you want to send newsletter to all subscribed users?' } %>
     </table>
   </div>
 </div>
