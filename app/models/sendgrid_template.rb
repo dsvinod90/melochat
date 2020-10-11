@@ -6,6 +6,8 @@ class SendgridTemplate < ApplicationRecord
   scope :newsletters, -> { where(code: 'HYP_NL') }
   scope :confirmation, -> { where(code: 'HYP_CONF_MAIL') }
   scope :latest_versions, -> { order('version desc') }
+  scope :active, -> { where(active: true) }
+  scope :not_active, -> { where(active: [nil, false]) }
 
   module TemplateMappings
     NEWSLETTER   = 'HYP_NL'

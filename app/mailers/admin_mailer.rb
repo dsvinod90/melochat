@@ -38,7 +38,7 @@ class AdminMailer < Devise::Mailer
   end
 
   def template
-    @template ||= SendgridTemplate.where(code: 'HYP_CONF_MAIL').latest_versions.first
+    @template ||= SendgridTemplate.where(code: 'HYP_CONF_MAIL').active.latest_versions.first
   end
 
   def confirmation_url

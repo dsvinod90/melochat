@@ -48,7 +48,7 @@ module Services
     end
 
     def template
-      @template ||= SendgridTemplate.where(code: template_code).latest_versions.first
+      @template ||= SendgridTemplate.where(code: template_code).active.latest_versions.first
     end
 
     def hostname

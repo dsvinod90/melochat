@@ -1,0 +1,16 @@
+<div class="content-font" style="margin-top: 10px;">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <%= link_to 'Admins List', show_admins_list_admins_path, class: "nav-link #{'active' if current_page? (show_admins_list_admins_path)}" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Users List', show_users_list_admins_path, class: "nav-link #{'active' if current_page? (show_users_list_admins_path)}" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Email templates', email_templates_admins_path, class: "nav-link #{'active' if current_page? (email_templates_admins_path)}" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to 'Send Newsletters', newsletter_settings_admins_path, class: "nav-link #{'active' if current_page? (newsletter_settings_admins_path)}" %>
+    </li>
+  </ul>
+</div>

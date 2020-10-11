@@ -36,9 +36,14 @@ Rails.application.routes.draw do
   get 'space/apod', to: 'space#apod'
   get 'space/asteroid_news', to: 'space#asteroid_news'
   get 'space/astronauts_data', to: 'space#astronauts_data'
-  resources :admins, only: [:index] do
+  resources :admins do
     collection do
+      get 'show_admins_list'
+      get 'show_users_list'
+      get 'email_templates'
+      get 'newsletter_settings'
       get 'send_newsletters'
+      put 'update_templates'
     end
   end
 end
