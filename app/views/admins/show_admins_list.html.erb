@@ -1,0 +1,26 @@
+<%= render 'admin_submenu' %>
+<div class='row justify-content-center'>
+  <div class='content-font'>
+    <h2 style='margin-top: 10px; text-align: center;'> Admin List </h2>
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th scope='col'>SL.NO.</th>
+          <th scope='col'>Name</th>
+          <th scope='col'>Email</th>
+          <th scope='col'>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @admins.each_with_index do |admin, index| %>
+          <tr>
+            <td> <%= index+1 %> </td>
+            <td> <%= admin.name %> </td>
+            <td> <%= admin.email %> </td>
+            <td> <%= admin.role_id %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

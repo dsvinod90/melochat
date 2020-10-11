@@ -12,4 +12,6 @@ en:
     invalid_role: 'Admin role is not valid'
     role_not_present: 'Role is not present'
     newsletter_sent: 'Newsletter has been sent to the selected users'
+    sent_to_all: 'Newsletter has been sent to all subscribed users'
     users_not_selected: 'Please select user(s) to send newsletters OR send to all users'
+    template_updated: 'Successfully updated template!'
