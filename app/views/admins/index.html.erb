@@ -1,8 +1,22 @@
 <%= render 'admin_submenu' %>
 <div class='row justify-content-center'>
-  <div class="jumbotron jumbotron-fluid content-font" style="margin: 0px; position: absolute; top: 55%; transform: translateY(-50%);">
-    <div class="container">
-      <h1 class="display-4">Welcome to Admin Dashboard, <%= current_admin.name %></h1>
+  <% if current_admin.email == 'melodie.ahwaye@gmail.com' && Date.current.between?(Date.parse("#{Date.current.year}-11-01"), Date.parse("#{Date.current.year}-11-02")) %>
+    <script>confetti.start(2000)</script>
+    <div class='row col-12 justify-content-center' style="margin-top: 40px;">
+      <h1 class="display-4" style="font-family: Itim; color: #ff1a40">Happy</h1>
+      <h1 class="display-4" style="font-family: Itim; color: #29b312">&nbsp; Birthday</h1>
     </div>
-  </div>
+    <div class='row col-12 justify-content-center' style="margin-top: 40px;">
+      <h1 class="display-4" style="font-family: Itim; color: #b31240"><%= current_admin.name%> !!!</h1>
+    </div>
+    <div class='row col-12 justify-content-center' style="margin-top: 40px;">
+      <h3 class="text-center" style="margin-top: 20px; font-family: Itim; color: #1a82ff"> Have a great day and an even better year ahead!! </h3>
+    </div>
+  <% else %>
+    <div class="jumbotron jumbotron-fluid content-font" style="margin: 0px; position: absolute; top: 55%; transform: translateY(-50%);">
+      <div class="container">
+          <h1 class="display-4">Welcome to Admin Dashboard, <%= current_admin.name %></h1>
+      </div>
+    </div>
+  <% end %>
 </div>
